@@ -1,8 +1,7 @@
 //Actual working code
+var pokemon;
 
-
-$("#blue-button-left").on("click", function(event) {
-    console.log("#blue-button-left pushed");
+function pokeapi() {
     let userInput = $("#nb").val().trim();
     var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
     userInput
@@ -14,8 +13,43 @@ $("#blue-button-left").on("click", function(event) {
 
       .then(function(response) {
         console.log(queryURL);
+        console.log(response);
+        pokename = response.name;
+        pokeid = response.id;
+        pokeheight = response.height;
+        pokeweight = response.weight;
+        poketype = response.types[0].type.name;
+        pokepic = response.sprites.front_default;
 
-        console.log(response);})
+        pokemon = {
+            name: pokename,
+            id: pokeid,
+            height: pokeheight,
+            weight: pokeweight,
+            type: poketype,
+            pic: pokepic
+        };
+        console.log(pokemon);
+        
+        let newPokemon = $("<div>").append(
+            $("<p>").text("Name: " + pokemon.name.toUpperCase()),
+            $("<p>").text("Number: " + pokemon.id),
+            $("<p>").text("Height: " + pokemon.height),
+            $("<p>").text("Weight: " + pokemon.weight),
+            $("<p>").text("Type: " + pokemon.type)
+        );
+
+            
+        $("#info-screen").append(newPokemon);
+        $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" />')
+
+    });    
+}
+
+
+$("#blue-button-left").on("click", function(event) {
+    console.log("#blue-button-left pushed");
+    pokeapi();   
 });
 
 
