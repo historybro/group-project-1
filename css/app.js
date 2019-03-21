@@ -1,7 +1,7 @@
 var userInput = "pikachu"
 
 
-$(document).on("onload", function() {
+$(document).on("click", "button", function() {
 
 
     var queryURL = "https://pokeapi.co/api/v2/" +
