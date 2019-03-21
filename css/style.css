@@ -124,12 +124,6 @@ body {
     border-top-left-radius: 120px
 }
 
-#logo {
-    position: absolute;
-    z-index: 130;
-    margin: 200px auto auto 30px
-}
-
 #glass-button {
     position: absolute;
     z-index: 110;
@@ -515,7 +509,7 @@ body {
     flex-wrap: wrap;
     height: 75px;
     width: 250px;
-    margin: 200px auto auto 50px
+    margin: 200px auto auto 50px;
 }
 
 .key {
@@ -680,14 +674,14 @@ body {
     height: 30px;
     width: 30px;
     box-shadow: -1px 1px 0px 1px #422c00;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #cross-button:active {
     box-shadow: none;
     background: linear-gradient(#f45f00, #ff0);
     box-shadow: 0px 0px 5px 2px #996700 inset;
-    border: #752d00 solid 1px
+    border: #752d00 solid 1px;
 }
 
 #left-red-cross {
@@ -698,7 +692,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 8px 15px 8px 0;
-    border-color: transparent #780808 transparent transparent
+    border-color: transparent #780808 transparent transparent;
 }
 
 #square-button-right1 {
@@ -710,7 +704,7 @@ body {
     width: 100px;
     box-shadow: 0 0 20px #C00D0D inset, 0px 0px 5px 1px #600707;
     background-color: #FF9300;
-    background: linear-gradient(#ff0, #FF9300)
+    background: linear-gradient(#ff0, #FF9300);
 }
 
 #square-button-right2 {
@@ -722,17 +716,9 @@ body {
     width: 100px;
     box-shadow: 0 0 20px #C00D0D inset, 0px 0px 5px 1px #600707;
     background-color: #FF9300;
-    background: linear-gradient(#ff0, #FF9300)
+    background: linear-gradient(#ff0, #FF9300);
 }
 
 .closed {
-        display: none;
-    }
-
-
-
-@media (min-width: 756px) {
-    #logo img {
-        display: none
-    }
+    display: none;
 }

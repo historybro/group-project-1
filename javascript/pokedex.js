@@ -63,6 +63,7 @@ function pokeapi() {
       })
 
       .then(function(response) {
+        $("#info-screen").empty();
         console.log(queryURL);
         console.log(response);
         let pokename = response.name;
@@ -220,6 +221,7 @@ $("#square-button-left").on("click", function(event) {
 // });
 
 $("#key1").on("click", function(event) {
+    cardapi();
     console.log("#key1 pushed");
 });
 
