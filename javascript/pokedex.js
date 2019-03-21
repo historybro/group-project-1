@@ -1,3 +1,27 @@
+//Actual working code
+
+
+$("#blue-button-left").on("click", function(event) {
+    console.log("#blue-button-left pushed");
+    let userInput = $("#nb").val().trim();
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
+    userInput
+       
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      .then(function(response) {
+        console.log(queryURL);
+
+        console.log(response);})
+});
+
+
+//ALL BUTTONS pre-coded to onclick
+//=======================================================
+
 $("#reflect").on("click", function(event) {
     console.log("#reflect pushed");
 });
@@ -26,9 +50,10 @@ $("#button-bottom").on("click", function(event) {
     console.log("#button-bottom pushed");
 });
 
-$("#blue-button-left").on("click", function(event) {
-    console.log("#blue-button-left pushed");
-});
+//commenting out for now because it's being used, will probably delete once our code is pretty set
+// $("#blue-button-left").on("click", function(event) {
+//     console.log("#blue-button-left pushed");
+// });
 
 $("#green-button-left").on("click", function(event) {
     console.log("#green-button-left pushed");

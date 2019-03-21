@@ -1,20 +1,20 @@
-var userInput = "pikachu"
+// var userInput = "pikachu"
 
 
-$(document).on("click", "button", function() {
+// $(document).on("click", "button", function() {
 
 
-    var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
-    userInput
+//     var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
+//     userInput
        
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//       })
 
-      .then(function(response) {
-        console.log(queryURL);
+//       .then(function(response) {
+//         console.log(queryURL);
 
-        console.log(response);})
+//         console.log(response);})
     
-});
+// });
