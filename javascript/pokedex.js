@@ -1,3 +1,61 @@
+//Actual working code
+var pokemon;
+
+function pokeapi() {
+    let userInput = $("#nb").val().trim();
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
+    userInput
+       
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+
+      .then(function(response) {
+        console.log(queryURL);
+        console.log(response);
+        pokename = response.name;
+        pokeid = response.id;
+        pokeheight = response.height;
+        pokeweight = response.weight;
+        poketype = response.types[0].type.name;
+        pokepic = response.sprites.front_default;
+
+        pokemon = {
+            name: pokename,
+            id: pokeid,
+            height: pokeheight,
+            weight: pokeweight,
+            type: poketype,
+            pic: pokepic
+        };
+        console.log(pokemon);
+        
+        let newPokemon = $("<div>").append(
+            $("<p>").text("Name: " + pokemon.name.toUpperCase()),
+            $("<p>").text("Number: " + pokemon.id),
+            $("<p>").text("Height: " + pokemon.height),
+            $("<p>").text("Weight: " + pokemon.weight),
+            $("<p>").text("Type: " + pokemon.type)
+        );
+
+            
+        $("#info-screen").append(newPokemon);
+        $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" />')
+
+    });    
+}
+
+
+$("#blue-button-left").on("click", function(event) {
+    console.log("#blue-button-left pushed");
+    pokeapi();   
+});
+
+
+//ALL BUTTONS pre-coded to onclick
+//=======================================================
+
 $("#reflect").on("click", function(event) {
     console.log("#reflect pushed");
 });
@@ -26,9 +84,10 @@ $("#button-bottom").on("click", function(event) {
     console.log("#button-bottom pushed");
 });
 
-$("#blue-button-left").on("click", function(event) {
-    console.log("#blue-button-left pushed");
-});
+//commenting out for now because it's being used, will probably delete once our code is pretty set
+// $("#blue-button-left").on("click", function(event) {
+//     console.log("#blue-button-left pushed");
+// });
 
 $("#green-button-left").on("click", function(event) {
     console.log("#green-button-left pushed");

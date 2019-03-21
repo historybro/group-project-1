@@ -285,6 +285,7 @@ body {
 
 #border-screen p {
     margin: 157px auto auto 180px;
+    font-family: 'Press Start 2P', cursive;
     font-size: 4em;
     color: #494949
 }
@@ -364,7 +365,8 @@ body {
     height: 35px;
     border-radius: 10px;
     border: none;
-    font-size: 2em;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
     text-align: center;
     box-shadow: 0 0 7px #004846 inset;
     border: solid #222 1px
@@ -501,6 +503,7 @@ body {
 }
 
 #info-screen p {
+    font-family: 'Press Start 2P', cursive;
     font-size: 1.2em
 }
 
