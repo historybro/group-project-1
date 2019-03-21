@@ -1,6 +1,57 @@
 //Actual working code
 var pokemon;
+var idNum;
 
+//function that clears the two main screens
+function clear() {
+    $("#screen").empty();
+    $("#info-screen").empty();
+}
+
+function userInputInt(){
+    let num = $("#nb").val().trim();
+    let pNum = parseInt(num);
+    if (Number.isInteger(pNum) == true) {
+        console.log("true");
+        idNum = pNum;
+    } else {
+        console.log("false");
+    }
+}
+
+function idUp() {
+    userInputInt();
+    idNum++;
+    $("#nb").val(idNum);
+    clear();
+    pokeapi();
+}
+
+function idDown() {
+    userInputInt();
+    idNum--;
+    $("#nb").val(idNum);
+    clear();
+    pokeapi();
+}
+
+function idUp10() {
+    userInputInt();
+    idNum= idNum + 10;
+    $("#nb").val(idNum);
+    clear();
+    pokeapi();
+}
+
+function idDown10() {
+    userInputInt();
+    idNum = idNum - 10;
+    $("#nb").val(idNum);
+    clear();
+    pokeapi();
+}
+
+//function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
     var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
@@ -15,14 +66,14 @@ function pokeapi() {
         $("#info-screen").empty();
         console.log(queryURL);
         console.log(response);
-        pokename = response.name;
-        pokeid = response.id;
-        pokeheight = response.height;
-        pokeweight = response.weight;
-        poketype = response.types[0].type.name;
-        pokepic = response.sprites.front_default;
+        let pokename = response.name;
+        let pokeid = response.id;
+        let pokeheight = response.height;
+        let pokeweight = response.weight;
+        let poketype = response.types[0].type.name;
+        let pokepic = response.sprites.front_default;
 
-        pokemon = {
+        let pokemon = {
             name: pokename,
             id: pokeid,
             height: pokeheight,
@@ -31,13 +82,15 @@ function pokeapi() {
             pic: pokepic
         };
         console.log(pokemon);
+        let heightC = (pokeheight / 3.05).toFixed(2);
+        let weightC = (pokeweight / 4.5).toFixed(2);
         
         let newPokemon = $("<div>").append(
-            $("<p>").text("Name: " + pokemon.name.toUpperCase()),
-            $("<p>").text("Number: " + pokemon.id),
-            $("<p>").text("Height: " + pokemon.height),
-            $("<p>").text("Weight: " + pokemon.weight),
-            $("<p>").text("Type: " + pokemon.type)
+            $("<p>").text("Name:" + pokemon.name.toUpperCase()),
+            $("<p>").text("Number:" + pokemon.id),
+            $("<p>").text('Height:' + heightC + '"'),
+            $("<p>").text("Weight:" + weightC +"lbs"),
+            $("<p>").text("Type:" + pokemon.type)
         );
 
             
@@ -48,10 +101,59 @@ function pokeapi() {
 }
 
 
+//enter key does the same thing as blue-button-left press ie ajax call and display info
+//WASD do the same thing as the dpad buttons on screen...theoretically
+//=======================================================================================
 $("#blue-button-left").on("click", function(event) {
     console.log("#blue-button-left pushed");
-    pokeapi();   
+    clear();
+    pokeapi();
 });
+
+$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        console.log("Enter Key Pressed");
+        clear();
+        pokeapi();
+    }
+});
+
+$("#upC").on("click", function(event) {
+    console.log("#upC pushed");
+    idUp();    
+});
+
+$("#rightC").on("click", function(event) {
+    console.log("#rightC pushed");
+    idUp10();    
+});
+
+$("#leftC").on("click", function(event) {
+    console.log("#leftC pushed");
+    idDown10();    
+});
+
+$("#downC").on("click", function(event) {
+    console.log("#downC pushed");
+    idDown();    
+});
+
+window.onkeyup = function(e) {
+    var key = e.keyCode ? e.keyCode : e.which; 
+    if(e.which == 87) {
+        console.log("w pushed");
+        idUp();
+    } else if(e.which == 68) {
+        console.log("d pushed");
+        idUp10();
+    } else if(e.which == 83) {
+        console.log("s pushed");
+        idDown();
+    } else if(e.which == 65) {
+        console.log("a pushed");
+        idDown10();
+    }
+}
 
 
 //ALL BUTTONS pre-coded to onclick
@@ -102,21 +204,21 @@ $("#square-button-left").on("click", function(event) {
     console.log("#square-button-left pushed");
 });
 
-$("#upC").on("click", function(event) {
-    console.log("#upC pushed");
-});
+// $("#upC").on("click", function(event) {
+//     console.log("#upC pushed");
+// });
 
-$("#rightC").on("click", function(event) {
-    console.log("#rightC pushed");
-});
+// $("#rightC").on("click", function(event) {
+//     console.log("#rightC pushed");
+// });
 
-$("#leftC").on("click", function(event) {
-    console.log("#leftC pushed");
-});
+// $("#leftC").on("click", function(event) {
+//     console.log("#leftC pushed");
+// });
 
-$("#downC").on("click", function(event) {
-    console.log("#downC pushed");
-});
+// $("#downC").on("click", function(event) {
+//     console.log("#downC pushed");
+// });
 
 $("#key1").on("click", function(event) {
     cardapi();
