@@ -1,0 +1,14 @@
+1. Who is your target audience?
+*Pokemon fans (casual or hardcore)
+2. What is the problem that the product will address?
+*Online Pokedexes being either pretty and nonfunctional, or functional and boring
+3. What is the primary goal of the product?
+*create a product visually identical to show/game and functional as well
+4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
+*As a user, I want to be able to search ALL pokemon
+*As a user, I want to be able to pull specific information of said pokemon
+*As a user, I want to be able to pull data from multiple games (gen 1, 2, etc, tcg)
+
+*NOT TOP 3
+*full visual functionality (ie buttons work)
+*voice whatever
