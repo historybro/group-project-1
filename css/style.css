@@ -1,5 +1,5 @@
 body {
-    background-image: url("../grassy-background.jpg");
+    background-image: url("../images/grassy-background.jpg");
     height: 900px;
 }
 
@@ -722,15 +722,11 @@ body {
     background: linear-gradient(#ff0, #FF9300)
 }
 
-@media (max-width: 756px) {
-    #right, #top-right1, #top-right2, #border-screen, #screen, #cross, #blue-button-left, #green-button-left, #orange-button-left, #square-button-left {
-        display: none
-        transition: left 0.5s;
+.closed {
+        display: none;
     }
-    #top-left1 {
-        box-shadow: none
-    }
-}
+
+
 
 @media (min-width: 756px) {
     #logo img {
