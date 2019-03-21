@@ -1,4 +1,4 @@
-
+var userInput = "pikachu"
 
 
 $(document).on("onload", function() {
