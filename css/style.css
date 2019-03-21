@@ -208,6 +208,14 @@ body {
     border-color: #494949
 }
 
+#myVideo {
+    background-color: #C00D0D;
+    width: 255px;
+    height: 140px;
+    border-radius: 20px;
+    border-style: solid;
+}
+
 #screen img {
     height: 130px;
     width: auto;
@@ -720,5 +728,9 @@ body {
 }
 
 .closed {
+    display: none;
+}
+
+.seeVideo {
     display: none;
 }
