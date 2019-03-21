@@ -181,6 +181,7 @@ $("#button-top1").on("click", function(event) {
 
 $("#button-top2").on("click", function(event) {
     console.log("#button-top2 pushed");
+    
 });
 
 $("#button-bottom").on("click", function(event) {
@@ -227,6 +228,10 @@ $("#key1").on("click", function(event) {
 
 $("#key2").on("click", function(event) {
     console.log("#key2 pushed");
+    userInputInt();
+    $("#nb").val(idNum);
+    clear();
+    pokeapi();
 });
 
 $("#key3").on("click", function(event) {
