@@ -12,9 +12,6 @@ $(document).on("click", "button", function() {
         method: "GET"
       })
 
-
-
-
       .then(function(response) {
         console.log(queryURL);
 
