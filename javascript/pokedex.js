@@ -1,6 +1,10 @@
 //Actual working code
 var pokemon;
 var idNum;
+// Voice Api
+var voiceData = function() {
+    responsiveVoice.speak("info-screen", "Uk English Male");
+};
 
 //function that clears the two main screens
 function clear() {
@@ -95,10 +99,13 @@ function pokeapi() {
 
             
         $("#info-screen").append(newPokemon);
-        $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" />')
+        $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" />');
+        voiceData();
+        
 
     });    
-}
+};
+
 
 
 //enter key does the same thing as blue-button-left press ie ajax call and display info
