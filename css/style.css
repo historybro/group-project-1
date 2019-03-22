@@ -743,12 +743,17 @@ body {
 .seeVideo {
     display: none;
 }
-.container-fluid {
-    text-align: center;
 
-}
-#character{
-    display: inline-block;
+
+.character{
+    position: absolute;
+  right: 40%;
+  width: 450px;
+  height:50px;
+  bottom: 1px;
+  word-spacing: 35px;
+  
+  
 }
 .key {
     font-family: 'Press Start 2P', cursive;
