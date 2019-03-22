@@ -3,7 +3,7 @@ var pokemon;
 var idNum;
 // Voice Api
 var voiceData = function() {
-    responsiveVoice.speak("info-screen", "Uk English Male");
+    responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
 };
 
 //function that clears the two main screens
