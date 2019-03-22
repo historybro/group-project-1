@@ -782,7 +782,7 @@ body {
 /* BetterTime */
 
 .main{
-    background: #ccc;
+    background: #c00d0d ;
     width: 440px;
     margin: 20px auto;
     height: 50px;
@@ -791,7 +791,7 @@ body {
 
 }
 .badge{
-    background: #e66357;
+    background: #780808;
     color: white;
     padding: 5px 10px;
     font-family: 'Press Start 2P', cursive;
@@ -803,7 +803,7 @@ body {
 
 }
 .clock{
- background: #EBEBEB;
+ background: #30da0c;
  text-align: center;
  font-size: 20px;
  height: 100%;
