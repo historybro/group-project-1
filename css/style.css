@@ -1,6 +1,32 @@
 body {
-    background-image: url("../images/grassy-background.jpg");
-    height: 900px;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.day {
+    background: url('../images/grassy-background.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sunset {
+    background: url('../images/sunsetBG.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.night {
+    background: url('../images/NightBG.jpg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #pokedex {
@@ -87,7 +113,7 @@ body {
     position: absolute;
     z-index: 100;
     margin: 0px auto auto 520px;
-    background-color: #7ccbf7;
+    background-color: #7cccf700;
     width: 230px;
     height: 100px;
     border-bottom-left-radius: 100px
@@ -744,53 +770,48 @@ body {
     display: none;
 }
 
-
-.character{
+.character {
     position: absolute;
-  right: 40%;
-  width: 450px;
-  height:50px;
-  bottom: 1px;
-  word-spacing: 35px;
-  
-  
+    right: 40%;
+    width: 450px;
+    height: 50px;
+    bottom: 1px;
+    word-spacing: 35px;
 }
+
 .key {
     font-family: 'Press Start 2P', cursive;
     font-size: 50%;
     line-height: 2;
     text-align: center;
-
-    
 }
+
 .key2 {
     font-family: 'Press Start 2P', cursive;
     font-size: 50%;
-    line-height:7;
+    line-height: 7;
     text-align: center;
-
-    
 }
+
 .key3 {
     font-family: 'Press Start 2P', cursive;
     font-size: 100%;
     line-height: 2;
     text-align: center;
-
-    
 }
+
 /* BetterTime */
 
-.main{
-    background: #c00d0d ;
+.main {
+    background: #c00d0d;
     width: 440px;
     margin: 20px auto;
     height: 50px;
     position: relative;
-    padding:10px; 
-
+    padding: 10px;
 }
-.badge{
+
+.badge {
     background: #780808;
     color: white;
     padding: 5px 10px;
@@ -798,18 +819,16 @@ body {
     font-weight: bold;
     width: 140px;
     position: absolute;
-    top:-15px;
-    left: 35%;   
-
+    top: -15px;
+    left: 35%;
 }
-.clock{
- background: #30da0c;
- text-align: center;
- font-size: 20px;
- height: 100%;
- padding-top: 5px;
- font-family: 'Press Start 2P', cursive;
- border-radius: 4px;
 
-
+.clock {
+    background: #30da0c;
+    text-align: center;
+    font-size: 20px;
+    height: 100%;
+    padding-top: 5px;
+    font-family: 'Press Start 2P', cursive;
+    border-radius: 4px;
 }
