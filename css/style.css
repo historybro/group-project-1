@@ -743,10 +743,73 @@ body {
 .seeVideo {
     display: none;
 }
-.container-fluid {
+
+
+.character{
+    position: absolute;
+  right: 40%;
+  width: 450px;
+  height:50px;
+  bottom: 1px;
+  word-spacing: 35px;
+  
+  
+}
+.key {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50%;
+    line-height: 2;
     text-align: center;
 
+    
 }
-#character{
-    display: inline-block;
+.key2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50%;
+    line-height:7;
+    text-align: center;
+
+    
+}
+.key3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 100%;
+    line-height: 2;
+    text-align: center;
+
+    
+}
+/* BetterTime */
+
+.main{
+    background: #c00d0d ;
+    width: 440px;
+    margin: 20px auto;
+    height: 50px;
+    position: relative;
+    padding:10px; 
+
+}
+.badge{
+    background: #780808;
+    color: white;
+    padding: 5px 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    width: 140px;
+    position: absolute;
+    top:-15px;
+    left: 35%;   
+
+}
+.clock{
+ background: #30da0c;
+ text-align: center;
+ font-size: 20px;
+ height: 100%;
+ padding-top: 5px;
+ font-family: 'Press Start 2P', cursive;
+ border-radius: 4px;
+
+
 }
