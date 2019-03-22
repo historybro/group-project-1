@@ -40,7 +40,7 @@
             </video>
           </div>
           <div id="triangle"></div>
-          <button><div id="blue-button-left">Search</div></button>
+          <div class="key2" id="blue-button-left">Search</div>
           <div id="green-button-left"></div>
           <div id="orange-button-left"></div>
           <div id="square-button-left">
@@ -97,9 +97,11 @@
           <div id="cross-button">
             <div id="left-red-cross"></div>
           </div>
-          <div id="square-button-right1"></div>
-          <div id="square-button-right2"
-          input onclick='responsiveVoice.speak("Blue Circle Button,This button will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. Blue Square Button (left). This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This button will allow you to see these instructions again.");' type='button' value='🔊 Play'><i class="fas fa-volume-up"></i></div>
+          <div class="key3" id="square-button-right1">
+            <i class="fas fa-volume-mute"></i>
+          </div>
+          <div class="key3" id="square-button-right2"
+          input onclick='responsiveVoice.speak("Search Button,This will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. TCG Button. This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This will allow you to see the text instructions again. Poke-Data Button. This will display the pokemon data for the current pokemon. Evo. Button. This will display the evolution forms of current pokemon. Start Audio Button. This will play the instructions verbally while allowing the BetterDex to still be utilized. Stop Audio Button. This will stop the audio instructions. Moves Button. This will display the moves of the current pokemon.  ");' type='button' value='🔊 Play'><p><i class="fas fa-volume-up"></i></p></div>
         </div>
           <div id="top-right1"></div>
           <div id="top-right2"></div>
@@ -115,20 +117,20 @@
                     <table class="nes-table is-bordered is-dark" style="width:100%">
                       <thead>
                         <tr>
-                          <th class="instructionTxt">Blue Circle Button</th>
+                          <th class="instructionTxt">Search Button</th>
                           <th class="instructionTxt">D-Pad</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="instructionTxt">This button will search for the pokemon data after
-                            you put a name, or number that is a Pokemon</td>
+                          <td class="instructionTxt">This will search for the pokemon data after
+                            you put a name, or number that is a Pokemon.</td>
                           <td class="instructionTxt">You can toggle through the next or previous Pokemon
                             in the following way:
                             Up-next pokemon
                             Down-previous pokemon
                             Left-back by 10
-                            Right-forward by 10
+                            Right-forward by 10.
                           </td>
                         </tr>
                       </tbody>
@@ -138,14 +140,14 @@
                     <table class="nes-table is-bordered is-dark" style="width:100%">
                       <thead>
                         <tr>
-                          <th class="instructionTxt">Blue Square Button (left)</th>
+                          <th class="instructionTxt">TCG Button</th>
                           <th class="instructionTxt">Search Field</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="instructionTxt">This button will display card data for the current
-                            pokemon</td>
+                          <td class="instructionTxt">This will display card data for the current
+                            pokemon.</td>
                           <td class="instructionTxt">You enter a valid number or name to search for
                             pokemon here.
                           </td>
@@ -163,13 +165,59 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="instructionTxt">Will power the BetterDex and open it, or power it off
-                            and close the BetterDex</td>
-                          <td class="instructionTxt"> This button will allow you to see these instructions again.</td>
+                          <td class="instructionTxt">Will power the BetterDex and open it, or power it off and close the BetterDex.</td>
+                          <td class="instructionTxt">This will allow you to see the text instructions again.</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+                  <div class="nes-table-responsive">
+                    <table class="nes-table is-bordered is-dark" style="width:100%">
+                      <thead>
+                        <tr>
+                          <th class="instructionTxt">Poke-Data Button</th>
+                          <th class="instructionTxt">Evo. Button</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="instructionTxt">This will display the pokemon data for the current pokemon.</td>
+                          <td class="instructionTxt">This will display the evolution forms of current pokemon.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="nes-table-responsive">
+                  <table class="nes-table is-bordered is-dark" style="width:100%">
+                    <thead>
+                      <tr>
+                        <th class="instructionTxt">Start Audio Button</th>
+                        <th class="instructionTxt">Stop Audio Button</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="instructionTxt">This will play the instructions verbally while allowing the BetterDex to still be utilized.</td>
+                        <td class="instructionTxt">This will stop the audio instructions.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="nes-table-responsive">
+                  <table class="nes-table is-bordered is-dark" style="width:100%">
+                    <thead>
+                      <tr>
+                        <th class="instructionTxt">Moves Button</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="instructionTxt">This will display the moves of the current pokemon</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
                 </div>
             </div>
             <div class="modal-footer">

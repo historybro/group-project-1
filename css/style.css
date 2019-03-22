@@ -750,3 +750,27 @@ body {
 #character{
     display: inline-block;
 }
+.key {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50%;
+    line-height: 2;
+    text-align: center;
+
+    
+}
+.key2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50%;
+    line-height:7;
+    text-align: center;
+
+    
+}
+.key3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 100%;
+    line-height: 2;
+    text-align: center;
+
+    
+}
