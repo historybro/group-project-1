@@ -743,3 +743,10 @@ body {
 .seeVideo {
     display: none;
 }
+.container-fluid {
+    text-align: center;
+
+}
+#character{
+    display: inline-block;
+}
