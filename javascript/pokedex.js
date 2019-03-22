@@ -8,7 +8,7 @@ var pokemon;
 var idNum;
 // Voice Api
 var voiceData = function() {
-    responsiveVoice.speak("info-screen", "Uk English Male");
+    responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
 };
 
 //function that clears the two main screens
@@ -65,6 +65,60 @@ function idDown10() {
     pokeapi();
 }
 
+//  function to get evolution data
+function evolutions() {
+    let userInput = $("#nb").val().trim();
+    var queryURL = "https://pokeapi.co/api/v2/evolution-chain/" + 
+    userInput
+
+
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+
+    .then(function(response) {
+        $("#info-screen").empty();
+        console.log(queryURL);
+        console.log(response);
+        let pokeEvolution = response.evolves_to;
+        
+        let evolesTo = $("<div>").append(
+            $("<p>").text("Evolves to"+ pokeEvolution)
+        );
+        $("#info-screen").append(pokeEvolution);
+
+        
+    })
+}
+// function to get Move list
+function pokeMoveList() {
+    let userInput = $("#nb").val().trim();
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" + 
+    userInput
+
+
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+
+    .then(function(response) {
+        $("#info-screen").empty();
+        console.log(queryURL);
+        console.log(response);
+        let pokemoves = response.moves;
+        
+        let moveList = $("<div>").append(
+            $("<p>").text("Moves"+ pokemoves)
+        );
+        $("#info-screen").append(moveList);
+
+        
+    })
+}
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
@@ -253,10 +307,16 @@ $("#key2").on("click", function(event) {
 
 $("#key3").on("click", function(event) {
     console.log("#key3 pushed");
+    userInputInt();
+    $("#nb").val(idNum);
+    clear();
+    pokeMoveList();
 });
 
 $("#key4").on("click", function(event) {
     console.log("#key4 pushed");
+    userInputInt();    
+    evolutions()
 });
 
 $("#key5").on("click", function(event) {
