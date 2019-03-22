@@ -823,6 +823,18 @@ body {
     left: 35%;
 }
 
+
+.logo{
+    background: #c00d0d;
+    color: white;
+    padding: 5px 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-weight: bold;
+    width: 140px;
+    position: absolute;
+    top:150px;
+}
+       
 .clock {
     background: #30da0c;
     text-align: center;
