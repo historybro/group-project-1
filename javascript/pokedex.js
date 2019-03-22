@@ -1,3 +1,8 @@
+// // On load for instructions
+$(window).on('load',function(){
+    $('#myModal').modal('show');
+});
+
 //Actual working code
 var pokemon;
 var idNum;
@@ -11,6 +16,11 @@ function clear() {
     $("#screen").empty();
     $("#info-screen").empty();
 }
+$(document).ready(function(){
+    $("#top-button-yellow").on("click", function(event) {
+        $("#myModal").modal("show");
+    });
+});
 
 function userInputInt(){
     let num = $("#nb").val().trim();
