@@ -727,6 +727,15 @@ body {
     background: linear-gradient(#ff0, #FF9300);
 }
 
+.instructionTxt {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+}
+
+.modal-footer, .modal-body {
+    background-color: #212529;
+}
+
 .closed {
     display: none;
 }
