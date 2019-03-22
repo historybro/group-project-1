@@ -84,10 +84,10 @@ function evolutions() {
         console.log(response);
         let pokeEvolution = response.evolves_to;
         
-        let evolesTo = $("<div>").append(
+        let evolvesTo = $("<div>").append(
             $("<p>").text("Evolves to"+ pokeEvolution)
         );
-        $("#info-screen").append(pokeEvolution);
+        $("#info-screen").append(evolvesTo);
 
         
     })
@@ -315,7 +315,9 @@ $("#key3").on("click", function(event) {
 
 $("#key4").on("click", function(event) {
     console.log("#key4 pushed");
-    userInputInt();    
+    userInputInt(); 
+    $("#nb").val(idNum);
+    clear();   
     evolutions()
 });
 
