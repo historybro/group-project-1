@@ -22,7 +22,7 @@ function cardapi() {
         pic: pokepic
     };
 
-     $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" />')
+     $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>')
 
   });    
 }
