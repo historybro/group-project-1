@@ -405,27 +405,50 @@ $("#top-right2").on("click", function(event) {
 
 
 var mapIn = 0;
-var maps =["https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png","https://cdn.bulbagarden.net/upload/3/32/Sevii_Islands.png","https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png","https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png","https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png","https://cdn.bulbagarden.net/upload/f/fc/Unova_B2W2_alt.png","https://cdn.bulbagarden.net/upload/8/8a/Kalos_alt.png","https://cdn.bulbagarden.net/upload/0/0b/Alola_USUM_artwork.png","https://cdn.bulbagarden.net/upload/c/ce/Galar_artwork.png","https://cdn.bulbagarden.net/upload/4/47/Orre.png","https://cdn.bulbagarden.net/upload/f/f0/Snap_Pok%C3%A9mon_Island.png","https://cdn.bulbagarden.net/upload/c/c8/TCG_Islands.png","https://cdn.bulbagarden.net/upload/4/41/Holon_City.jpg","https://cdn.bulbagarden.net/upload/3/36/Mystery_Dungeon_World_PSMD.png","https://cdn.bulbagarden.net/upload/4/48/Fiore_alt.png","https://cdn.bulbagarden.net/upload/f/f4/Almia.png","https://cdn.bulbagarden.net/upload/f/f5/Oblivia_artwork.png","https://cdn.bulbagarden.net/upload/4/4b/Ransei.png","https://cdn.bulbagarden.net/upload/f/fe/Ferrum.png"," https://cdn.bulbagarden.net/upload/d/d5/Tumblecube_Island.png"];
+var maps = ["https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png",
+"https://cdn.bulbagarden.net/upload/3/32/Sevii_Islands.png",
+"https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png",
+"https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png",
+"https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png",
+"https://cdn.bulbagarden.net/upload/f/fc/Unova_B2W2_alt.png",
+"https://cdn.bulbagarden.net/upload/8/8a/Kalos_alt.png",
+"https://cdn.bulbagarden.net/upload/0/0b/Alola_USUM_artwork.png",
+"https://cdn.bulbagarden.net/upload/c/ce/Galar_artwork.png",
+"https://cdn.bulbagarden.net/upload/4/47/Orre.png",
+"https://cdn.bulbagarden.net/upload/f/f0/Snap_Pok%C3%A9mon_Island.png",
+"https://cdn.bulbagarden.net/upload/c/c8/TCG_Islands.png",
+"https://cdn.bulbagarden.net/upload/4/41/Holon_City.jpg",
+"https://cdn.bulbagarden.net/upload/3/36/Mystery_Dungeon_World_PSMD.png",
+"https://cdn.bulbagarden.net/upload/4/48/Fiore_alt.png",
+"https://cdn.bulbagarden.net/upload/f/f4/Almia.png",
+"https://cdn.bulbagarden.net/upload/f/f5/Oblivia_artwork.png",
+"https://cdn.bulbagarden.net/upload/4/4b/Ransei.png",
+"https://cdn.bulbagarden.net/upload/f/fe/Ferrum.png",
+"https://cdn.bulbagarden.net/upload/d/d5/Tumblecube_Island.png"
+];
 
 
 function getMap(){
-var i = mapIn; 
 clear();
-$("#screen").append('<img id="map.location'+ i + '" src="' + maps[i] + '" />');
+$("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
 };
 
 function previousMap(){
-    var i;
-if(mapIn===0){
-    }else{i--;}
+    if(mapIn===0){
+        mapIn = 19;
+    } else { 
+        mapIn--;
+    }
     clear();
-$("#screen").append('<img id="map.location'+ i + '" src="' + maps[i] + '" />');
+    $("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
 };
 
 function nextMap(){
-    var i;
     if(mapIn===19){
-        }else{i++;}
+        mapIn = 0;
+        } else {
+            mapIn++;
+        }
         clear();
-    $("#screen").append('<img id="map.location'+ i + '" src="' + maps[i] + '" />');
+    $("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
 };
