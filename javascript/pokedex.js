@@ -122,9 +122,8 @@ function pokeMoveList() {
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
-    var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
-    userInput
-       
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" + userInput;
+    
     $.ajax({
         url: queryURL,
         method: "GET"
