@@ -119,6 +119,8 @@ function pokeMoveList() {
         
     })
 }
+
+let gifname = [];
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
@@ -149,12 +151,14 @@ function pokeapi() {
             type: poketype,
             pic: pokepic
         };
+        gifname.push(pokemon.name);
+        console.log(gifname);
         console.log(pokemon);
         let heightC = (pokeheight / 3.05).toFixed(2);
         let weightC = (pokeweight / 4.5).toFixed(2);
         
         let newPokemon = $("<div>").append(
-            $("<p>").text("Name:" + pokemon.name.toUpperCase()),
+            $("<p>").attr('id', 'pokname').text("Name:" + pokemon.name.toUpperCase()),
             $("<p>").text("Number:" + pokemon.id),
             $("<p>").text('Height:' + heightC + '"'),
             $("<p>").text("Weight:" + weightC +"lbs"),
@@ -177,6 +181,7 @@ function pokeapi() {
 //=======================================================================================
 $("#blue-button-left").on("click", function(event) {
     console.log("#blue-button-left pushed");
+    empty();
     clear();
     pokeapi();
 });
@@ -184,6 +189,7 @@ $("#blue-button-left").on("click", function(event) {
 $(document).on('keypress',function(e) {
     if(e.which == 13) {
         console.log("Enter Key Pressed");
+        empty();
         clear();
         pokeapi();
     }
@@ -191,21 +197,25 @@ $(document).on('keypress',function(e) {
 
 $("#upC").on("click", function(event) {
     console.log("#upC pushed");
+    empty();
     idUp();    
 });
 
 $("#rightC").on("click", function(event) {
     console.log("#rightC pushed");
+    empty();
     idUp10();    
 });
 
 $("#leftC").on("click", function(event) {
     console.log("#leftC pushed");
+    empty();
     idDown10();    
 });
 
 $("#downC").on("click", function(event) {
     console.log("#downC pushed");
+    empty();
     idDown();    
 });
 
@@ -213,15 +223,19 @@ window.onkeyup = function(e) {
     var key = e.keyCode ? e.keyCode : e.which; 
     if(e.which == 87) {
         console.log("w pushed");
+        empty();
         idUp();
     } else if(e.which == 68) {
         console.log("d pushed");
+        empty();
         idUp10();
     } else if(e.which == 83) {
         console.log("s pushed");
+        empty();
         idDown();
     } else if(e.which == 65) {
         console.log("a pushed");
+        empty();
         idDown10();
     }
 }
@@ -256,6 +270,7 @@ $("#button-top2").on("click", function(event) {
 });
 
 $("#button-bottom").on("click", function(event) {
+    displayGifs();
     console.log("#button-bottom pushed");
 });
 
