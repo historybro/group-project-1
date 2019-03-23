@@ -773,7 +773,7 @@ body {
 .character {
     position: absolute;
     right: 40%;
-    width: 450px;
+    width: 500px;
     height: 50px;
     bottom: 1px;
     word-spacing: 35px;
@@ -801,6 +801,13 @@ body {
     line-height: 2;
     text-align: center;
     
+}
+#button-bottom {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50%;
+    line-height: 4;
+    text-align: center;
+    color: whitesmoke;
 }
 
 /* BetterTime */

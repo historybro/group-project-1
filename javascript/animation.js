@@ -14,6 +14,5 @@ function toggleMute() {
       video.muted = false;
     } else {
       video.muted = true;
-    }
-  
-  }
+    }  
+}

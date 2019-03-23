@@ -124,9 +124,8 @@ let gifname = [];
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
-    var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
-    userInput
-       
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" + userInput;
+    
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -220,22 +219,18 @@ $("#downC").on("click", function(event) {
 });
 
 window.onkeyup = function(e) {
-    var key = e.keyCode ? e.keyCode : e.which; 
-    if(e.which == 87) {
-        console.log("w pushed");
-        empty();
+    var key = e.keyCode ? e.keyCode : e.which;
+    if(e.which == 38) {
+        console.log("up arrow pushed");
         idUp();
-    } else if(e.which == 68) {
-        console.log("d pushed");
-        empty();
+    } else if(e.which == 39) {
+        console.log("right arrow pushed");
         idUp10();
-    } else if(e.which == 83) {
-        console.log("s pushed");
-        empty();
+    } else if(e.which == 40) {
+        console.log("down arrow pushed");
         idDown();
-    } else if(e.which == 65) {
-        console.log("a pushed");
-        empty();
+    } else if(e.which == 37) {
+        console.log("left arrow pushed");
         idDown10();
     }
 }
@@ -404,3 +399,5 @@ $("top-right1").on("click", function(event) {
 $("#top-right2").on("click", function(event) {
     console.log("#top-right2 pushed");
 });
+
+var maps =["https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png","https://cdn.bulbagarden.net/upload/3/32/Sevii_Islands.png","https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png","https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png","https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png","https://cdn.bulbagarden.net/upload/f/fc/Unova_B2W2_alt.png","https://cdn.bulbagarden.net/upload/8/8a/Kalos_alt.png","https://cdn.bulbagarden.net/upload/0/0b/Alola_USUM_artwork.png","https://cdn.bulbagarden.net/upload/c/ce/Galar_artwork.png","https://cdn.bulbagarden.net/upload/4/47/Orre.png","https://cdn.bulbagarden.net/upload/f/f0/Snap_Pok%C3%A9mon_Island.png","https://cdn.bulbagarden.net/upload/c/c8/TCG_Islands.png","https://cdn.bulbagarden.net/upload/4/41/Holon_City.jpg","https://cdn.bulbagarden.net/upload/3/36/Mystery_Dungeon_World_PSMD.png","https://cdn.bulbagarden.net/upload/4/48/Fiore_alt.png","https://cdn.bulbagarden.net/upload/f/f4/Almia.png","https://cdn.bulbagarden.net/upload/f/f5/Oblivia_artwork.png","https://cdn.bulbagarden.net/upload/4/4b/Ransei.png","https://cdn.bulbagarden.net/upload/f/fe/Ferrum.png"," https://cdn.bulbagarden.net/upload/d/d5/Tumblecube_Island.png"];
