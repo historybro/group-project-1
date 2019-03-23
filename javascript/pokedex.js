@@ -1,7 +1,7 @@
 // // On load for instructions
-$(window).on('load',function(){
-    $('#myModal').modal('show');
-});
+// $(window).on('load',function(){
+//     $('#myModal').modal('show');
+// });
 
 //Actual working code
 var pokemon;
@@ -163,7 +163,7 @@ function pokeapi() {
 
             
         $("#info-screen").append(newPokemon);
-        $("#screen").html('<img id="'+pokemon.name+'" src="'+pokepic+'" />');
+        $("#screen").append('<img id="'+pokemon.name+'" src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
         voiceData();
         
 
