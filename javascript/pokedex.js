@@ -353,6 +353,7 @@ $("#key9").on("click", function(event) {
 
 $("#key10").on("click", function(event) {
     console.log("#key10 pushed");
+    getMap();
 });
 
 $("#leaf-button-right").on("click", function(event) {
@@ -374,10 +375,12 @@ $("#orange-button-right").on("click", function(event) {
 
 $("#leftT").on("click", function(event) {
     console.log("#leftT pushed");
+    previousMap();
 });
 
 $("#rightT").on("click", function(event) {
     console.log("#rightT pushed");
+    nextMap();
 });
 
 $("#left-red-cross").on("click", function(event) {
@@ -400,4 +403,29 @@ $("#top-right2").on("click", function(event) {
     console.log("#top-right2 pushed");
 });
 
+
+var mapIn = 0;
 var maps =["https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png","https://cdn.bulbagarden.net/upload/3/32/Sevii_Islands.png","https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png","https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png","https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png","https://cdn.bulbagarden.net/upload/f/fc/Unova_B2W2_alt.png","https://cdn.bulbagarden.net/upload/8/8a/Kalos_alt.png","https://cdn.bulbagarden.net/upload/0/0b/Alola_USUM_artwork.png","https://cdn.bulbagarden.net/upload/c/ce/Galar_artwork.png","https://cdn.bulbagarden.net/upload/4/47/Orre.png","https://cdn.bulbagarden.net/upload/f/f0/Snap_Pok%C3%A9mon_Island.png","https://cdn.bulbagarden.net/upload/c/c8/TCG_Islands.png","https://cdn.bulbagarden.net/upload/4/41/Holon_City.jpg","https://cdn.bulbagarden.net/upload/3/36/Mystery_Dungeon_World_PSMD.png","https://cdn.bulbagarden.net/upload/4/48/Fiore_alt.png","https://cdn.bulbagarden.net/upload/f/f4/Almia.png","https://cdn.bulbagarden.net/upload/f/f5/Oblivia_artwork.png","https://cdn.bulbagarden.net/upload/4/4b/Ransei.png","https://cdn.bulbagarden.net/upload/f/fe/Ferrum.png"," https://cdn.bulbagarden.net/upload/d/d5/Tumblecube_Island.png"];
+
+
+function getMap(){
+var i = mapIn; 
+clear();
+$("#screen").append('<img id="map.location'+ i + '" src="' + maps[i] + '" />');
+};
+
+function previousMap(){
+    var i;
+if(mapIn===0){
+    }else{i--;}
+    clear();
+$("#screen").append('<img id="map.location'+ i + '" src="' + maps[i] + '" />');
+};
+
+function nextMap(){
+    var i;
+    if(mapIn===19){
+        }else{i++;}
+        clear();
+    $("#screen").append('<img id="map.location'+ i + '" src="' + maps[i] + '" />');
+};
