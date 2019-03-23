@@ -802,6 +802,13 @@ body {
     text-align: center;
     
 }
+#button-bottom {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 50%;
+    line-height: 4;
+    text-align: center;
+    color: whitesmoke;
+}
 
 /* BetterTime */
 
