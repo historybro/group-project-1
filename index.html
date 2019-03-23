@@ -1,278 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="css/style.css" type='text/css'>
-    <link rel="stylesheet" href="css/reset.css" type='text/css'>
-    <title>BetterDex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" type='text/css'>
+  <title>BetterDex</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
 
-<div class="main">
-<div class="badge">
-  BetterTime
-</div>
-<!-- BetterTime -->
-<div class="clock">
-  <span id="hour"></span>
-  <span id="minute"></span>
-  <span id="second"></span> 
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pokedex">
-        <div id="left">
-          <div id="top-left"></div>
-          <div id="top-left1">
-            <div id="glass-button">
-              <div id="reflect"></div>
-            </div>
-            <div id="top-buttons">
-              <div id="top-button-red"></div>
-              <div id="top-button-yellow"></div>
-              <div id="top-button-green"></div>
-            </div>
-          </div>
-          <div id="top-left2"></div>
-          <div id="border-screen">
-            <div id="button-top1"></div>
-            <div id="button-top2"></div>
-            <div id="button-bottom"></div>
-            <p id="blah" class="selectDisable">&equiv;&equiv;</p>
-          </div>
-          <div id="screen"><img id="blah" class="selectDisable" src="" alt=""/>
-            <video controls autoplay loop muted id="myVideo" class="seeVideo">
-            <source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag. 
-            </video>
-            <!-- logo -->
-
-    <div><img src="../group-project-1/images/BD (1).png"></div>
-    
-          </div>
-          <div id="triangle"></div>
-          <div class="key2" id="blue-button-left">Search</div>
-          <div id="green-button-left"></div>
-          <div id="orange-button-left"></div>
-          <div id="square-button-left">
-            <input id="nb" type="text" name="howmuch" value="">
-          </div>
-          <div id="cross">
-            <div id="mid-cross">
-              <div id="mid-circle"></div>
-            </div>
-            <div id="top-cross">
-              <div id="upC"></div>
-            </div>
-            <div id="right-cross">
-              <div id="rightC"></div>
-            </div>
-            <div id="bot-cross">
-              <div id="downC"></div>
-            </div>
-            <div id="left-cross">
-              <div id="leftC"></div>
-            </div>
-          </div>
-        </div>
-          <div id="middle">
-            <div id="hinge1"></div>
-            <div id="hinge2"></div>
-            <div id="hinge3"></div>
-          </div>
-        <div id="right">
-          <div id="info-screen">
-          </div>
-          <div id="keyboard">
-            <div class="key" id="key1">TCG</div>
-            <div class="key" id="key2">Poke-Data</div>
-            <div class="key" id="key3">Moves</div>
-            <div class="key" id="key4">Evo.</div>
-            <a href="https://j91branson.github.io/PokemonQuiz/" target="_blank"><div class="key" id="key5">Quiz-Easy</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizMedium/" target="_blank"><div class="key" id="key6">Quiz-Medium</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard1/"><div class="key" id="key7">Quiz-Hard1</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard2/"><div class="key" id="key8">Quiz-Hard2</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard3/"></a><div class="key" id="key9">Quiz-Hard3</div>
-            <div class="key" id="key10">Maps</div>
-          </div>
-          <div id="leaf-button-right"></div>
-          <div id="yellow-button-right"></div>
-          <div id="green-button-right"></div>
-          <div id="orange-button-right"></div>
-          <div id="left-cross-button">
-            <div id="leftT"></div>
-          </div>
-          <div id="right-cross-button">
-            <div id="rightT"></div>
-          </div>
-          <div id="cross-button">
-            <div id="left-red-cross"></div>
-          </div>
-          <div class="key3" id="square-button-right1" input onclick='responsiveVoice.cancel();'>
-            <i class="fas fa-volume-mute"></i>
-          </div>
-          <div class="key3" id="square-button-right2"
-          input onclick='responsiveVoice.speak("     Search Button,This will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. TCG Button. This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This will allow you to see the text instructions again. Poke-Data Button. This will display the pokemon data for the current pokemon. Evo. Button. This will display the evolution forms of current pokemon. Start Audio Button. This will play the instructions verbally while allowing the BetterDex to still be utilized. Stop Audio Button. This will stop the audio instructions. Moves Button. This will display the moves of the current pokemon.  ");' type='button' value='🔊 Play'><p><i class="fas fa-volume-up"></i></p></div>
-        </div>
-          <div id="top-right1"></div>
-          <div id="top-right2"></div>
+  <div class="main">
+    <div class="badge">
+      BetterTime
     </div>
-    <div class="container-fluid"></div>
-    <div class="character"><i class="nes-bulbasaur"></i> 
-      <i class="nes-charmander"></i> 
-      <i class="nes-squirtle"></i> 
-
-    <div id="myModal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-body">
-                <div class="nes-container is-dark with-title instructionsCon">
-                  <p class="title instructionTxt">BetterDex Instructions</p>
-                  <div class="nes-table-responsive">
-                    <table class="nes-table is-bordered is-dark" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th class="instructionTxt">Search Button</th>
-                          <th class="instructionTxt">D-Pad</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="instructionTxt">This will search for the pokemon data after
-                            you put a name, or number that is a Pokemon.</td>
-                          <td class="instructionTxt">You can toggle through the next or previous Pokemon
-                            in the following way:
-                            Up-next pokemon
-                            Down-previous pokemon
-                            Left-back by 10
-                            Right-forward by 10.
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="nes-table-responsive">
-                    <table class="nes-table is-bordered is-dark" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th class="instructionTxt">TCG Button</th>
-                          <th class="instructionTxt">Search Field</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="instructionTxt">This will display card data for the current
-                            pokemon.</td>
-                          <td class="instructionTxt">You enter a valid number or name to search for
-                            pokemon here.
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="nes-table-responsive">
-                    <table class="nes-table is-bordered is-dark" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th class="instructionTxt">Red Power Button (top left)</th>
-                          <th class="instructionTxt">Yellow Instructions Button (top left)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="instructionTxt">Will power the BetterDex and open it, or power it off and close the BetterDex.</td>
-                          <td class="instructionTxt">This will allow you to see the text instructions again.</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="nes-table-responsive">
-                    <table class="nes-table is-bordered is-dark" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th class="instructionTxt">Poke-Data Button</th>
-                          <th class="instructionTxt">Evo. Button</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="instructionTxt">This will display the pokemon data for the current pokemon.</td>
-                          <td class="instructionTxt">This will display the evolution forms of current pokemon.</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="nes-table-responsive">
-                  <table class="nes-table is-bordered is-dark" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th class="instructionTxt">Start Audio Button</th>
-                        <th class="instructionTxt">Stop Audio Button</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="instructionTxt">This will play the instructions verbally while allowing the BetterDex to still be utilized.</td>
-                        <td class="instructionTxt">This will stop the audio instructions.
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="nes-table-responsive">
-                  <table class="nes-table is-bordered is-dark" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th class="instructionTxt">Moves Button</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="instructionTxt">This will display the moves of the current pokemon</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="nes-btn is-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-    </div>
-    
-    
-    
-    
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="javascript/animation.js"></script>
-    <script src="javascript/app.js"></script>
-    <script src="javascript/card.js"></script>
-    <script src="javascript/day-night.js"></script>
-    <!-- Voice API -->
-    <script src=https://code.responsivevoice.org/responsivevoice.js></script>
-    <script src="javascript/pokedex.js"></script>
     <!-- BetterTime -->
-    <script src="../group-project-1/css/BetterTime.js"></script>       
+    <div class="clock">
+      <span id="hour"></span>
+      <span id="minute"></span>
+      <span id="second"></span>
+    </div>
+  </div>
+
+  <div id="pokedex">
+    <div id="left">
+      <div id="top-left"></div>
+      <div id="top-left1">
+        <div id="glass-button">
+          <div id="reflect"></div>
+        </div>
+        <div id="top-buttons">
+          <div id="top-button-red"></div>
+          <div id="top-button-yellow"></div>
+          <div id="top-button-green"></div>
+        </div>
+      </div>
+      <div id="top-left2"></div>
+      <div id="border-screen">
+        <div id="button-top1"></div>
+        <div id="button-top2"></div>
+        <div id="button-bottom"></div>
+        <p id="blah" class="selectDisable">&equiv;&equiv;</p>
+      </div>
+      <div id="screen"><img id="blah" class="selectDisable" src="" alt="" />
+        <video controls autoplay loop muted id="myVideo" class="seeVideo">
+          <source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+        <!-- logo -->
+        <div><img src="../group-project-1/images/BD (1).png"></div>
+
+      </div>
+      <div id="triangle"></div>
+      <div class="key2" id="blue-button-left">Search</div>
+      <div id="green-button-left"></div>
+      <div id="orange-button-left"></div>
+      <div id="square-button-left">
+        <input id="nb" type="text" name="howmuch" value="">
+      </div>
+      <div id="cross">
+        <div id="mid-cross">
+          <div id="mid-circle"></div>
+        </div>
+        <div id="top-cross">
+          <div id="upC"></div>
+        </div>
+        <div id="right-cross">
+          <div id="rightC"></div>
+        </div>
+        <div id="bot-cross">
+          <div id="downC"></div>
+        </div>
+        <div id="left-cross">
+          <div id="leftC"></div>
+        </div>
+      </div>
+    </div>
+    <div id="middle">
+      <div id="hinge1"></div>
+      <div id="hinge2"></div>
+      <div id="hinge3"></div>
+    </div>
+    <div id="right">
+      <div id="info-screen">
+      </div>
+      <div id="keyboard">
+        <div class="key" id="key1">TCG</div>
+        <div class="key" id="key2">Poke-Data</div>
+        <div class="key" id="key3">Moves</div>
+        <div class="key" id="key4">Evo.</div>
+        <a href="https://j91branson.github.io/PokemonQuiz/" target="_blank">
+          <div class="key" id="key5">Quiz-Easy</div>
+        </a>
+        <a href="https://j91branson.github.io/PokemonQuizMedium/" target="_blank">
+          <div class="key" id="key6">Quiz-Medium</div>
+        </a>
+        <a href="https://j91branson.github.io/PokemonQuizHard1/">
+          <div class="key" id="key7">Quiz-Hard1</div>
+        </a>
+        <a href="https://j91branson.github.io/PokemonQuizHard2/">
+          <div class="key" id="key8">Quiz-Hard2</div>
+        </a>
+        <a href="https://j91branson.github.io/PokemonQuizHard3/"></a>
+        <div class="key" id="key9">Quiz-Hard3</div>
+        <div class="key" id="key10">Maps</div>
+      </div>
+      <div id="leaf-button-right"></div>
+      <div id="yellow-button-right"></div>
+      <div id="green-button-right"></div>
+      <div id="orange-button-right"></div>
+      <div id="left-cross-button">
+        <div id="leftT"></div>
+      </div>
+      <div id="right-cross-button">
+        <div id="rightT"></div>
+      </div>
+      <div id="cross-button">
+        <div id="left-red-cross"></div>
+      </div>
+      <div class="key3" id="square-button-right1" input onclick='responsiveVoice.cancel();'>
+        <i class="fas fa-volume-mute"></i>
+      </div>
+      <div class="key3" id="square-button-right2" input
+        onclick='responsiveVoice.speak("     Search Button,This will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. TCG Button. This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This will allow you to see the text instructions again. Poke-Data Button. This will display the pokemon data for the current pokemon. Evo. Button. This will display the evolution forms of current pokemon. Start Audio Button. This will play the instructions verbally while allowing the BetterDex to still be utilized. Stop Audio Button. This will stop the audio instructions. Moves Button. This will display the moves of the current pokemon.  ");'
+        type='button' value='🔊 Play'>
+        <p><i class="fas fa-volume-up"></i></p>
+      </div>
+    </div>
+    <div id="top-right1"></div>
+    <div id="top-right2"></div>
+  </div>
+
+  <div class="container">
+    <div class="character">
+      <a href="https://github.com/historybro" target="_blank" class="nes-bulbasaur"></a>
+      <a href="https://github.com/CaitlynSifuentes" target="_blank" class="nes-charmander"></a>
+      <a href="https://j91branson.github.io/Bootstrap-repository/" target="_blank" class="nes-squirtle"></a>
+    </div>
+  </div>
+
+  <div id="myModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="nes-container is-dark with-title instructionsCon">
+            <p class="title instructionTxt">BetterDex Instructions</p>
+            <div class="table-responsive">
+              <div class="nes-table">
+                <table class="nes-table is-bordered is-dark" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="instructionTxt">Search Button</th>
+                      <th class="instructionTxt">D-Pad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="instructionTxt">This will search for the pokemon data after
+                        you put a name, or number that is a Pokemon.</td>
+                      <td class="instructionTxt">You can toggle through the next or previous Pokemon
+                        in the following way:
+                        Up-next pokemon
+                        Down-previous pokemon
+                        Left-back by 10
+                        Right-forward by 10.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nes-table">
+                <table class="nes-table is-bordered is-dark" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="instructionTxt">TCG Button</th>
+                      <th class="instructionTxt">Search Field</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="instructionTxt">This will display card data for the current
+                        pokemon.</td>
+                      <td class="instructionTxt">You enter a valid number or name to search for
+                        pokemon here.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nes-table">
+                <table class="nes-table is-bordered is-dark" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="instructionTxt">Red Power Button (top left)</th>
+                      <th class="instructionTxt">Yellow Instructions Button (top left)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="instructionTxt">Will power the BetterDex and open it, or power it off and close the
+                        BetterDex.</td>
+                      <td class="instructionTxt">This will allow you to see the text instructions again.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nes-table">
+                <table class="nes-table is-bordered is-dark" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="instructionTxt">Poke-Data Button</th>
+                      <th class="instructionTxt">Evo. Button</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="instructionTxt">This will display the pokemon data for the current pokemon.</td>
+                      <td class="instructionTxt">This will display the evolution forms of current pokemon.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nes-table">
+                <table class="nes-table is-bordered is-dark" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="instructionTxt">Start Audio Button</th>
+                      <th class="instructionTxt">Stop Audio Button</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="instructionTxt">This will play the instructions verbally while allowing the BetterDex
+                        to still be utilized.</td>
+                      <td class="instructionTxt">This will stop the audio instructions.
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="nes-table">
+                <table class="nes-table is-bordered is-dark" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th class="instructionTxt">Moves Button</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="instructionTxt">This will display the moves of the current pokemon</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="nes-btn is-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!--Animation-->
+  <script src="javascript/animation.js"></script>
+  <!--deprecated-->
+  <!--<script src="javascript/app.js"></script>-->
+  <!--Card-->
+  <script src="javascript/card.js"></script>
+  <!--Day/Night-->
+  <script src="javascript/day-night.js"></script>
+  <!--Everything else-->
+  <script src="javascript/pokedex.js"></script>
+  <!-- Voice API -->
+  <script src=https://code.responsivevoice.org/responsivevoice.js> </script> <!-- BetterTime -->
+  <script src="javascript/BetterTime.js"></script>
 
 </body>
+
 </html>

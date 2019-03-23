@@ -211,17 +211,17 @@ $("#downC").on("click", function(event) {
 
 window.onkeyup = function(e) {
     var key = e.keyCode ? e.keyCode : e.which; 
-    if(e.which == 87) {
-        console.log("w pushed");
+    if(e.which == 38) {
+        console.log("up arrow pushed");
         idUp();
-    } else if(e.which == 68) {
-        console.log("d pushed");
+    } else if(e.which == 39) {
+        console.log("right arrow pushed");
         idUp10();
-    } else if(e.which == 83) {
-        console.log("s pushed");
+    } else if(e.which == 40) {
+        console.log("down arrow pushed");
         idDown();
-    } else if(e.which == 65) {
-        console.log("a pushed");
+    } else if(e.which == 37) {
+        console.log("left arrow pushed");
         idDown10();
     }
 }
