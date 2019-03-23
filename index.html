@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="css/style.css" type='text/css'>
-    <link rel="stylesheet" href="css/reset.css" type='text/css'>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>BetterDex</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" type='text/css'>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <title>BetterDex</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+
 <body>
 
-<div class="main">
-<div class="badge">
-  BetterTime
-</div>
-<!-- BetterTime -->
-<div class="clock">
-  <span id="hour"></span>
-  <span id="minute"></span>
-  <span id="second"></span> 
-</div>
-</div>
+  <div class="main">
+    <div class="badge">
+      BetterTime
+    </div>
+    <!-- BetterTime -->
+    <div class="clock">
+      <span id="hour"></span>
+      <span id="minute"></span>
+      <span id="second"></span>
+    </div>
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-    <div id="pokedex">
+  <div id="pokedex">
         <div id="left">
           <div id="top-left"></div>
           <div id="top-left1">
@@ -66,8 +57,7 @@
             <source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag. 
             </video>
             <!-- logo -->
-
-    <!-- <div><img src="../group-project-1/images/BD (1).png"></div> -->
+            <!-- <div><img src="../group-project-1/images/BD (1).png"></div> -->
     
           </div>
           <div id="triangle"></div>
@@ -134,15 +124,11 @@
           <div class="key3" id="square-button-right2"
           input onclick='responsiveVoice.speak("     Search Button,This will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. TCG Button. This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This will allow you to see the text instructions again. Poke-Data Button. This will display the pokemon data for the current pokemon. Evo. Button. This will display the evolution forms of current pokemon. Start Audio Button. This will play the instructions verbally while allowing the BetterDex to still be utilized. Stop Audio Button. This will stop the audio instructions. Quiz Buttons. This will open a quiz with varied difficulty, in a new window. Map Button. This will pull up the maps of the different regions. Left Arrow Button. This will go to the previous region map. Right Arrow Button. This will go to the next region map. Moves Button. This will display the moves of the current pokemon.  ");' type='button' value='🔊 Play'><p><i class="fas fa-volume-up"></i></p></div>
         </div>
-          <div id="top-right1"></div>
-          <div id="top-right2"></div>
-    </div>
-    <div class="container-fluid"></div>
-    <div class="character"><i class="nes-bulbasaur"></i> 
-      <i class="nes-charmander"></i> 
-      <i class="nes-squirtle"></i> 
+        <div id="top-right1"></div>
+        <div id="top-right2"></div>
+  </div>
 
-    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div id="myModal" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body">
@@ -292,22 +278,30 @@
                 </div>
           </div>
         </div>
+      </div>
     </div>
-    
-    
-    
-    
+  </div>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="javascript/animation.js"></script>
-    <script src="javascript/app.js"></script>
-    <script src="javascript/card.js"></script>
-    <script src="javascript/day-night.js"></script>
-    <!-- Voice API -->
-    <script src=https://code.responsivevoice.org/responsivevoice.js></script>
-    <script src="javascript/pokedex.js"></script>
-    <!-- BetterTime -->
-    <script src="../group-project-1/css/BetterTime.js"></script>       
+
+
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <!--Animation-->
+  <script src="javascript/animation.js"></script>
+  <!--Card-->
+  <script src="javascript/card.js"></script>
+  <!--Day/Night-->
+  <script src="javascript/day-night.js"></script>
+  <!--Everything else-->
+  <script src="javascript/pokedex.js"></script>
+  <!-- Voice API -->
+  <script src=https://code.responsivevoice.org/responsivevoice.js> </script>
+  <!-- BetterTime -->
+  <script src="javascript/BetterTime.js"></script>
 
 </body>
+
 </html>
