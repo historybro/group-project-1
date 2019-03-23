@@ -784,6 +784,7 @@ body {
     font-size: 50%;
     line-height: 2;
     text-align: center;
+    color: whitesmoke;
 }
 
 .key2 {
@@ -791,6 +792,7 @@ body {
     font-size: 50%;
     line-height: 7;
     text-align: center;
+    color: whitesmoke;
 }
 
 .key3 {
@@ -798,6 +800,7 @@ body {
     font-size: 100%;
     line-height: 2;
     text-align: center;
+    
 }
 
 /* BetterTime */
