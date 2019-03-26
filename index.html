@@ -46,29 +46,28 @@
             </div>
           </div>
           <div id="top-left2"></div>
-          <div id="border-screen" class="closed">
+          <div id="border-screen">
             <div id="button-top1"></div>
             <div id="button-top2"></div>
             <div id="button-bottom">Gif</div>
-            <p id="blah" class="selectDisable closed">&equiv;&equiv;</p>
+            <p id="blah" class="selectDisable">&equiv;&equiv;</p>
           </div>
-          <div id="screen" class="closed">
+          <div id="screen">
            
-            <video controls autoplay loop muted id="myVideo">
+            <video controls autoplay loop muted id="myVideo" class="seeVideo">
             <source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag. 
             </video>
             <!-- logo -->
-            <!-- <div><img src="../group-project-1/images/BD (1).png"></div> -->
-    
+          <div><img src="../group-project-1/images/BD (1).png"></div>              
           </div>
           <div id="triangle"></div>
-          <div class="key2 closed" id="blue-button-left">Search</div>
-          <div id="green-button-left" class="closed"></div>
-          <div id="orange-button-left" class="closed"></div>
-          <div id="square-button-left" class="closed">
+          <div class="key2" id="blue-button-left">Search</div>
+          <div id="green-button-left"></div>
+          <div id="orange-button-left"></div>
+          <div id="square-button-left">
             <input id="nb" type="text" name="howmuch" value="">
           </div>
-          <div id="cross" class="closed">
+          <div id="cross">
             <div id="mid-cross">
               <div id="mid-circle"></div>
             </div>
@@ -91,7 +90,7 @@
             <div id="hinge2"></div>
             <div id="hinge3"></div>
           </div>
-        <div id="right" class="closed">
+        <div id="right">
           <div id="info-screen">
           </div>
           <div id="keyboard">
@@ -101,9 +100,10 @@
             <div class="key" id="key4">Evo.</div>
             <a href="https://j91branson.github.io/PokemonQuiz/" target="_blank"><div class="key" id="key5">Quiz-Easy</div></a>
             <a href="https://j91branson.github.io/PokemonQuizMedium/" target="_blank"><div class="key" id="key6">Quiz-Medium</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard1/"><div class="key" id="key7">Quiz-Hard1</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard2/"><div class="key" id="key8">Quiz-Hard2</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard3/"></a><div class="key" id="key9">Quiz-Hard3</div>
+            <a href="https://j91branson.github.io/PokemonQuizHard1/" target="_blank"><div class="key" id="key7">Quiz-Hard1</div></a>
+            <a href="https://j91branson.github.io/PokemonQuizHard2/" target="_blank"><div class="key" id="key8">Quiz-Hard2</div></a>
+            <a href="https://j91branson.github.io/PokemonQuizHard3/" target="_blank"></a><div class="key" id="key9">Quiz-Hard3</div></a>
+
             <div class="key" id="key10">Maps</div>
           </div>
           <div id="leaf-button-right"></div>
@@ -111,6 +111,7 @@
           <div id="green-button-right"></div>
           <div id="orange-button-right"></div>
           <div id="left-cross-button">
+          
             <div id="leftT"></div>
           </div>
           <div id="right-cross-button">
@@ -125,8 +126,8 @@
           <div class="key3" id="square-button-right2"
           input onclick='responsiveVoice.speak("     Search Button,This will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. TCG Button. This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This will allow you to see the text instructions again. Poke-Data Button. This will display the pokemon data for the current pokemon. Evo. Button. This will display the evolution forms of current pokemon. Start Audio Button. This will play the instructions verbally while allowing the BetterDex to still be utilized. Stop Audio Button. This will stop the audio instructions. Quiz Buttons. This will open a quiz with varied difficulty, in a new window. Map Button. This will pull up the maps of the different regions. Left Arrow Button. This will go to the previous region map. Right Arrow Button. This will go to the next region map. Moves Button. This will display the moves of the current pokemon.  ");' type='button' value='🔊 Play'><p><i class="fas fa-volume-up"></i></p></div>
         </div>
-        <div id="top-right1" class="closed"></div>
-        <div id="top-right2" class="closed"></div>
+        <div id="top-right1"></div>
+        <div id="top-right2"></div>
   </div>
 
   <div id="myModal" class="modal" tabindex="-1" role="dialog">
@@ -285,9 +286,9 @@
 
   <div class="container-fluid">
     <div class="character">
-      <a href= "https://github.com/historybro" class="nes-bulbasaur closed" target="_blank"></a> 
-      <a href="https://github.com/CaitlynSifuentes" class="nes-charmander closed" target="_blank"></a> 
-      <a href="https://j91branson.github.io/Bootstrap-repository/" class="nes-squirtle closed" target="_blank"></a>
+      <a href= "https://github.com/historybro" class="nes-bulbasaur" target="_blank"></a> 
+      <a href="https://github.com/CaitlynSifuentes" class="nes-charmander" target="_blank"></a> 
+      <a href="https://j91branson.github.io/Bootstrap-repository/" class="nes-squirtle" target="_blank"></a>
     </div>
   </div> 
 
@@ -308,6 +309,8 @@
   <script src="javascript/BetterTime.js"></script>
   <!-- Gipy -->
   <script src="javascript/gifs.js"></script>
+  <!-- Voice -->
+  <script src="javascript/voice.js"></script>
 </body>
 
 </html>

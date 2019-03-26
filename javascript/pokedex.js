@@ -13,9 +13,10 @@ var pokemon;
 var idNum;
 let gifname = [];
 // Voice Api
-var voiceData = function () {
-    responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
-};
+// function voiceData() {
+//     responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
+// };
+
 
 //function that clears the two main screens
 function clear() {
@@ -179,7 +180,7 @@ function pokeapi() {
         method: "GET"
     })
 
-        .then(function (response) {
+        .then(function(response) {
             $("#info-screen").empty();
             console.log(queryURL);
             console.log(response);
@@ -229,6 +230,7 @@ $("#blue-button-left").on("click", function (event) {
     empty();
     clear();
     pokeapi();
+    speakFlavor();
 });
 
 $(document).on('keypress', function (e) {
