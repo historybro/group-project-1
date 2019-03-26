@@ -7,9 +7,10 @@
 var pokemon;
 var idNum;
 // Voice Api
-var voiceData = function() {
-    responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
-};
+// function voiceData() {
+//     responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
+// };
+
 
 //function that clears the two main screens
 function clear() {
@@ -167,7 +168,7 @@ function pokeapi() {
             
         $("#info-screen").append(newPokemon);
         $("#screen").append('<img id="'+pokemon.name+'" src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
-        voiceData();
+        // voiceData();
         
 
     });    
@@ -183,6 +184,7 @@ $("#blue-button-left").on("click", function(event) {
     empty();
     clear();
     pokeapi();
+    speakFlavor();
 });
 
 $(document).on('keypress',function(e) {
