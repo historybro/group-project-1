@@ -40,6 +40,7 @@ function idUp() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idDown() {
@@ -48,6 +49,7 @@ function idDown() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idUp10() {
@@ -56,6 +58,7 @@ function idUp10() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idDown10() {
@@ -64,6 +67,7 @@ function idDown10() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 //  function to get evolution data
@@ -193,6 +197,7 @@ $(document).on('keypress',function(e) {
         empty();
         clear();
         pokeapi();
+        speakFlavor();
     }
 });
 
