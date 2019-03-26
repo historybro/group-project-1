@@ -2,10 +2,16 @@
 // $(window).on('load',function(){
 //     $('#myModal').modal('show');
 // });
+$(document).ready(function () {
+    $("#top-button-yellow").on("click", function (event) {
+        $("#myModal").modal("show");
+    });
+});
 
 //Actual working code
 var pokemon;
 var idNum;
+let gifname = [];
 // Voice Api
 // function voiceData() {
 //     responsiveVoice.speak($('#info-screen').val(), "Uk English Male");
@@ -26,7 +32,8 @@ $(document).ready(function(){
     });
 });
 
-function userInputInt(){
+
+function userInputInt() {
     let num = $("#nb").val().trim();
     let pNum = parseInt(num);
     if (Number.isInteger(pNum) == true) {
@@ -43,6 +50,7 @@ function idUp() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idDown() {
@@ -51,14 +59,16 @@ function idDown() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idUp10() {
     userInputInt();
-    idNum= idNum + 10;
+    idNum = idNum + 10;
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idDown10() {
@@ -67,40 +77,88 @@ function idDown10() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 //  function to get evolution data
 function evolutions() {
+
     let userInput = $("#nb").val().trim();
-    var queryURL = "https://pokeapi.co/api/v2/evolution-chain/" + 
-    userInput
-
-
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" + userInput;
 
     $.ajax({
         url: queryURL,
         method: "GET"
     })
 
-    .then(function(response) {
-        $("#info-screen").empty();
-        console.log(queryURL);
-        console.log(response);
-        let pokeEvolution = response.evolves_to;
-        
-        let evolvesTo = $("<div>").append(
-            $("<p>").text("Evolves to"+ pokeEvolution)
-        );
-        $("#info-screen").append(evolvesTo);
+        .then(function (response) {
+            console.log(response);
 
-        
-    })
-}
+            var url = response.species.url;
+
+            $.ajax({
+                url: url,
+                method: "GET"
+            })
+                .then(function (response) {
+                    console.log(response);
+                    var url = response.evolution_chain.url;
+
+                    $.ajax({
+                        url: url,
+                        method: "GET"
+                    })
+                        .then(function (response) {
+                            console.log(response);
+                            var evoChain = [];
+                            var evoData = response;
+                            var evoDetails = evoData.chain['evolves_to'][0];
+                            console.log(evoDetails);
+                            evoShort = evoDetails['evolution_details'][0];
+                            console.log(evoShort);
+                            console.log(evoDetails.species.name)
+                            console.log(evoShort.min_level)
+                            console.log(evoShort.trigger.name)
+                            console.log(evoShort.item)
+
+                            let name = evoDetails.species.name;
+                            let level = evoShort.min_level;
+                            let trigger = evoShort.trigger.name;
+                            let item = evoShort.item;
+                            console.log( name + level + trigger + item);
+                            do {    evoChain.push({
+                                species_name: name,
+                                min_level: !evoDetails ? 1 : level,
+                                trigger_name: !evoDetails ? null : trigger,
+                                item: !evoDetails ? null : item
+                                });
+
+                            } while  (!!evoData && evoData.hasOwnProperty('evolves_to'));                           
+                            console.log(evoChain);
+                            if (item != null) {
+                                evoItem = "Yes";
+                            } else {
+                                evoItem = "No";
+                            }
+
+                            let evoInfo = $("<div>").append(
+                                $("<p>").attr('id', 'pokname').text("Evolves To:" + name.toUpperCase()),
+                                $("<p>").text("Evolves Via: " + trigger),
+                                $("<p>").text('Minimum Level: ' + level),
+                                $("<p>").text("Item Needed to Evolve?: " + evoItem),
+                            );
+                            $("#info-screen").append(evoInfo);
+                        })
+                })
+        });
+};
+
+
 // function to get Move list
 function pokeMoveList() {
     let userInput = $("#nb").val().trim();
-    var queryURL = "https://pokeapi.co/api/v2/pokemon/" + 
-    userInput
+    var queryURL = "https://pokeapi.co/api/v2/pokemon/" +
+        userInput
 
 
 
@@ -109,27 +167,26 @@ function pokeMoveList() {
         method: "GET"
     })
 
-    .then(function(response) {
-        $("#info-screen").empty();
-        console.log(queryURL);
-        console.log(response);
-        let pokemoves = response.moves;
-        
-        let moveList = $("<div>").append(
-            $("<p>").text("Moves"+ pokemoves)
-        );
-        $("#info-screen").append(moveList);
+        .then(function (response) {
+            $("#info-screen").empty();
+            console.log(queryURL);
+            console.log(response);
+            let pokemoves = response.moves;
 
-        
-    })
+            let moveList = $("<div>").append(
+                $("<p>").text("Moves" + pokemoves)
+            );
+            $("#info-screen").append(moveList);
+
+
+        })
 }
 
-let gifname = [];
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
     var queryURL = "https://pokeapi.co/api/v2/pokemon/" + userInput;
-    
+
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -184,7 +241,7 @@ function pokeapi() {
 //enter key does the same thing as blue-button-left press ie ajax call and display info
 //WASD do the same thing as the dpad buttons on screen...theoretically
 //=======================================================================================
-$("#blue-button-left").on("click", function(event) {
+$("#blue-button-left").on("click", function (event) {
     console.log("#blue-button-left pushed");
     empty();
     clear();
@@ -192,51 +249,52 @@ $("#blue-button-left").on("click", function(event) {
     speakFlavor();
 });
 
-$(document).on('keypress',function(e) {
-    if(e.which == 13) {
+$(document).on('keypress', function (e) {
+    if (e.which == 13) {
         console.log("Enter Key Pressed");
         empty();
         clear();
         pokeapi();
+        speakFlavor();
     }
 });
 
-$("#upC").on("click", function(event) {
+$("#upC").on("click", function (event) {
     console.log("#upC pushed");
     empty();
-    idUp();    
+    idUp();
 });
 
-$("#rightC").on("click", function(event) {
+$("#rightC").on("click", function (event) {
     console.log("#rightC pushed");
     empty();
-    idUp10();    
+    idUp10();
 });
 
-$("#leftC").on("click", function(event) {
+$("#leftC").on("click", function (event) {
     console.log("#leftC pushed");
     empty();
-    idDown10();    
+    idDown10();
 });
 
-$("#downC").on("click", function(event) {
+$("#downC").on("click", function (event) {
     console.log("#downC pushed");
     empty();
-    idDown();    
+    idDown();
 });
 
-window.onkeyup = function(e) {
+window.onkeyup = function (e) {
     var key = e.keyCode ? e.keyCode : e.which;
-    if(e.which == 38) {
+    if (e.which == 38) {
         console.log("up arrow pushed");
         idUp();
-    } else if(e.which == 39) {
+    } else if (e.which == 39) {
         console.log("right arrow pushed");
         idUp10();
-    } else if(e.which == 40) {
+    } else if (e.which == 40) {
         console.log("down arrow pushed");
         idDown();
-    } else if(e.which == 37) {
+    } else if (e.which == 37) {
         console.log("left arrow pushed");
         idDown10();
     }
@@ -246,32 +304,32 @@ window.onkeyup = function(e) {
 //ALL BUTTONS pre-coded to onclick
 //=======================================================
 
-$("#reflect").on("click", function(event) {
+$("#reflect").on("click", function (event) {
     console.log("#reflect pushed");
 });
 
-$("#top-button-red").on("click", function(event) {
+$("#top-button-red").on("click", function (event) {
     console.log("#top-button-red pushed");
 });
 
-$("#top-button-yellow").on("click", function(event) {
+$("#top-button-yellow").on("click", function (event) {
     console.log("#top-button-yellow pushed");
 });
 
-$("#top-button-green").on("click", function(event) {
+$("#top-button-green").on("click", function (event) {
     console.log("#top-button-green pushed");
 });
 
-$("#button-top1").on("click", function(event) {
+$("#button-top1").on("click", function (event) {
     console.log("#button-top1 pushed");
 });
 
-$("#button-top2").on("click", function(event) {
+$("#button-top2").on("click", function (event) {
     console.log("#button-top2 pushed");
-    
+
 });
 
-$("#button-bottom").on("click", function(event) {
+$("#button-bottom").on("click", function (event) {
     displayGifs();
     console.log("#button-bottom pushed");
 });
@@ -281,17 +339,17 @@ $("#button-bottom").on("click", function(event) {
 //     console.log("#blue-button-left pushed");
 // });
 
-$("#green-button-left").on("click", function(event) {
+$("#green-button-left").on("click", function (event) {
     console.log("#green-button-left pushed");
     $("#modal2").modal("show");
     
 });
 
-$("#orange-button-left").on("click", function(event) {
+$("#orange-button-left").on("click", function (event) {
     console.log("#orange-button-left pushed");
 });
 
-$("#square-button-left").on("click", function(event) {
+$("#square-button-left").on("click", function (event) {
     console.log("#square-button-left pushed");
 });
 
@@ -311,12 +369,12 @@ $("#square-button-left").on("click", function(event) {
 //     console.log("#downC pushed");
 // });
 
-$("#key1").on("click", function(event) {
+$("#key1").on("click", function (event) {
     cardapi();
     console.log("#key1 pushed");
 });
 
-$("#key2").on("click", function(event) {
+$("#key2").on("click", function (event) {
     console.log("#key2 pushed");
     userInputInt();
     $("#nb").val(idNum);
@@ -324,7 +382,7 @@ $("#key2").on("click", function(event) {
     pokeapi();
 });
 
-$("#key3").on("click", function(event) {
+$("#key3").on("click", function (event) {
     console.log("#key3 pushed");
     userInputInt();
     $("#nb").val(idNum);
@@ -332,128 +390,128 @@ $("#key3").on("click", function(event) {
     pokeMoveList();
 });
 
-$("#key4").on("click", function(event) {
+$("#key4").on("click", function (event) {
     console.log("#key4 pushed");
-    userInputInt(); 
+    userInputInt();
     $("#nb").val(idNum);
-    clear();   
+    $("#info-screen").empty();
     evolutions()
 });
 
-$("#key5").on("click", function(event) {
+$("#key5").on("click", function (event) {
     console.log("#key5 pushed");
 });
 
-$("#key6").on("click", function(event) {
+$("#key6").on("click", function (event) {
     console.log("#key6 pushed");
 });
 
-$("#key7").on("click", function(event) {
+$("#key7").on("click", function (event) {
     console.log("#key7 pushed");
 });
 
-$("#key8").on("click", function(event) {
+$("#key8").on("click", function (event) {
     console.log("#key8 pushed");
 });
 
-$("#key9").on("click", function(event) {
+$("#key9").on("click", function (event) {
     console.log("#key9 pushed");
 });
 
-$("#key10").on("click", function(event) {
+$("#key10").on("click", function (event) {
     console.log("#key10 pushed");
     getMap();
 });
 
-$("#leaf-button-right").on("click", function(event) {
+$("#leaf-button-right").on("click", function (event) {
     console.log("#leaf-button-right pushed");
 });
 
 
-$("#yellow-button-right").on("click", function(event) {
+$("#yellow-button-right").on("click", function (event) {
     console.log("#yellow-button-right pushed");
 });
 
-$("#green-button-right").on("click", function(event) {
+$("#green-button-right").on("click", function (event) {
     console.log("#green-button-right pushed");
 });
 
-$("#orange-button-right").on("click", function(event) {
+$("#orange-button-right").on("click", function (event) {
     console.log("#orange-button-right pushed");
 });
 
-$("#leftT").on("click", function(event) {
+$("#leftT").on("click", function (event) {
     console.log("#leftT pushed");
     previousMap();
 });
 
-$("#rightT").on("click", function(event) {
+$("#rightT").on("click", function (event) {
     console.log("#rightT pushed");
     nextMap();
 });
 
-$("#left-red-cross").on("click", function(event) {
+$("#left-red-cross").on("click", function (event) {
     console.log("#left-red-cross pushed");
 });
 
-$("#square-button-right1").on("click", function(event) {
+$("#square-button-right1").on("click", function (event) {
     console.log("#square-button-right1 pushed");
 });
 
-$("#square-button-right2").on("click", function(event) {
+$("#square-button-right2").on("click", function (event) {
     console.log("#square-button-right2 pushed");
 });
 
-$("top-right1").on("click", function(event) {
+$("top-right1").on("click", function (event) {
     console.log("#top-right1 pushed");
 });
 
-$("#top-right2").on("click", function(event) {
+$("#top-right2").on("click", function (event) {
     console.log("#top-right2 pushed");
 });
 
-
+// MAP STUFF
 var mapIn = 0;
 var maps = ["https://cdn.bulbagarden.net/upload/2/25/LGPE_Kanto_Map.png",
-"https://cdn.bulbagarden.net/upload/3/32/Sevii_Islands.png",
-"https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png",
-"https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png",
-"https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png",
-"https://cdn.bulbagarden.net/upload/f/fc/Unova_B2W2_alt.png",
-"https://cdn.bulbagarden.net/upload/8/8a/Kalos_alt.png",
-"https://cdn.bulbagarden.net/upload/0/0b/Alola_USUM_artwork.png",
-"https://cdn.bulbagarden.net/upload/c/ce/Galar_artwork.png",
-"https://cdn.bulbagarden.net/upload/4/47/Orre.png",
-"https://cdn.bulbagarden.net/upload/f/f0/Snap_Pok%C3%A9mon_Island.png",
-"https://cdn.bulbagarden.net/upload/c/c8/TCG_Islands.png",
-"https://cdn.bulbagarden.net/upload/4/41/Holon_City.jpg",
-"https://cdn.bulbagarden.net/upload/3/36/Mystery_Dungeon_World_PSMD.png",
-"https://cdn.bulbagarden.net/upload/4/48/Fiore_alt.png",
-"https://cdn.bulbagarden.net/upload/f/f4/Almia.png",
-"https://cdn.bulbagarden.net/upload/f/f5/Oblivia_artwork.png",
-"https://cdn.bulbagarden.net/upload/4/4b/Ransei.png",
-"https://cdn.bulbagarden.net/upload/f/fe/Ferrum.png",
-"https://cdn.bulbagarden.net/upload/d/d5/Tumblecube_Island.png"
+    "https://cdn.bulbagarden.net/upload/3/32/Sevii_Islands.png",
+    "https://cdn.bulbagarden.net/upload/6/64/JohtoMap.png",
+    "https://cdn.bulbagarden.net/upload/8/85/Hoenn_ORAS.png",
+    "https://cdn.bulbagarden.net/upload/7/74/Pt_Sinnoh.png",
+    "https://cdn.bulbagarden.net/upload/f/fc/Unova_B2W2_alt.png",
+    "https://cdn.bulbagarden.net/upload/8/8a/Kalos_alt.png",
+    "https://cdn.bulbagarden.net/upload/0/0b/Alola_USUM_artwork.png",
+    "https://cdn.bulbagarden.net/upload/c/ce/Galar_artwork.png",
+    "https://cdn.bulbagarden.net/upload/4/47/Orre.png",
+    "https://cdn.bulbagarden.net/upload/f/f0/Snap_Pok%C3%A9mon_Island.png",
+    "https://cdn.bulbagarden.net/upload/c/c8/TCG_Islands.png",
+    "https://cdn.bulbagarden.net/upload/4/41/Holon_City.jpg",
+    "https://cdn.bulbagarden.net/upload/3/36/Mystery_Dungeon_World_PSMD.png",
+    "https://cdn.bulbagarden.net/upload/4/48/Fiore_alt.png",
+    "https://cdn.bulbagarden.net/upload/f/f4/Almia.png",
+    "https://cdn.bulbagarden.net/upload/f/f5/Oblivia_artwork.png",
+    "https://cdn.bulbagarden.net/upload/4/4b/Ransei.png",
+    "https://cdn.bulbagarden.net/upload/f/fe/Ferrum.png",
+    "https://cdn.bulbagarden.net/upload/d/d5/Tumblecube_Island.png"
 ];
 
 
-function getMap(){
-clear();
-$("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
+function getMap() {
+    clear();
+    $("#screen").append('<img id="map.location' + mapIn + '" src="' + maps[mapIn] + '" />');
 };
 
-function previousMap(){
-    if(mapIn===0){
+function previousMap() {
+    if (mapIn === 0) {
         mapIn = 19;
-    } else { 
+    } else {
         mapIn--;
     }
     clear();
-    $("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
+    $("#screen").append('<img id="map.location' + mapIn + '" src="' + maps[mapIn] + '" />');
 };
 
-function nextMap(){
-    if(mapIn===19){
+function nextMap() {
+    if (mapIn === 19) {
         mapIn = 0;
         } else {
             mapIn++;
