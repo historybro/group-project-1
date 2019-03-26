@@ -779,6 +779,11 @@ body {
     word-spacing: 35px;
 }
 
+#modalimg {
+    height: 100%;
+    width: 100%;
+}
+
 .key {
     font-family: 'Press Start 2P', cursive;
     font-size: 50%;
