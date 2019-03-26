@@ -229,7 +229,7 @@ function pokeapi() {
         $("#info-screen").append(newPokemon);
         $("#screen").append('<img id="'+pokemon.name+'" src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
         $(".modal-body2").empty();
-        $(".modal-body2").append('<img id="'+pokemon.name+'" src="'+pokepic+'" />');
+        $(".modal-body2").append('<img id="modalimg" src="'+pokepic+'" />');
         // voiceData();
         
 
