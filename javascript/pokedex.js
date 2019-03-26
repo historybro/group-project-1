@@ -18,7 +18,7 @@ function clear() {
     $("#info-screen").empty();
 }
 $(document).ready(function(){
-    $("modal2").hide();
+    $("#modal2").hide();
 
     $("#top-button-yellow").on("click", function(event) {
         $("#myModal").modal("show");
@@ -283,7 +283,7 @@ $("#button-bottom").on("click", function(event) {
 
 $("#green-button-left").on("click", function(event) {
     console.log("#green-button-left pushed");
-    $("#pokemonPictureModal").modal("show");
+    $("#modal2").modal("show");
     
 });
 
