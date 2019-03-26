@@ -23,6 +23,14 @@ function clear() {
     $("#screen").empty();
     $("#info-screen").empty();
 }
+$(document).ready(function(){
+    $("#modal2").hide();
+
+    $("#top-button-yellow").on("click", function(event) {
+        $("#myModal").modal("show");
+       
+    });
+});
 
 
 function userInputInt() {
@@ -182,46 +190,50 @@ function pokeapi() {
     $.ajax({
         url: queryURL,
         method: "GET"
-    })
+      })
 
-        .then(function(response) {
-            $("#info-screen").empty();
-            console.log(queryURL);
-            console.log(response);
-            let pokename = response.name;
-            let pokeid = response.id;
-            let pokeheight = response.height;
-            let pokeweight = response.weight;
-            let poketype = response.types[0].type.name;
-            let pokepic = response.sprites.front_default;
+      .then(function(response) {
+        $("#info-screen").empty();
+        console.log(queryURL);
+        console.log(response);
+        let pokename = response.name;
+        let pokeid = response.id;
+        let pokeheight = response.height;
+        let pokeweight = response.weight;
+        let poketype = response.types[0].type.name;
+        let pokepic = response.sprites.front_default;
 
-            let pokemon = {
-                name: pokename,
-                id: pokeid,
-                height: pokeheight,
-                weight: pokeweight,
-                type: poketype,
-                pic: pokepic
-            };
-            gifname.push(pokemon.name);
-            console.log(gifname);
-            console.log(pokemon);
-            let heightC = (pokeheight / 3.05).toFixed(2);
-            let weightC = (pokeweight / 4.5).toFixed(2);
+        let pokemon = {
+            name: pokename,
+            id: pokeid,
+            height: pokeheight,
+            weight: pokeweight,
+            type: poketype,
+            pic: pokepic
+        };
+        gifname.push(pokemon.name);
+        console.log(gifname);
+        console.log(pokemon);
+        let heightC = (pokeheight / 3.05).toFixed(2);
+        let weightC = (pokeweight / 4.5).toFixed(2);
+        
+        let newPokemon = $("<div>").append(
+            $("<p>").attr('id', 'pokname').text("Name:" + pokemon.name.toUpperCase()),
+            $("<p>").text("Number:" + pokemon.id),
+            $("<p>").text('Height:' + heightC + '"'),
+            $("<p>").text("Weight:" + weightC +"lbs"),
+            $("<p>").text("Type:" + pokemon.type)
+        );
 
-            let newPokemon = $("<div>").append(
-                $("<p>").attr('id', 'pokname').text("Name:" + pokemon.name.toUpperCase()),
-                $("<p>").text("Number:" + pokemon.id),
-                $("<p>").text('Height:' + heightC + '"'),
-                $("<p>").text("Weight:" + weightC + "lbs"),
-                $("<p>").text("Type:" + pokemon.type)
-            );
-            $("#info-screen").append(newPokemon);
-            $("#screen").append('<img id="' + pokemon.name + '" src="' + pokepic + '" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
-            voiceData();
+            
+        $("#info-screen").append(newPokemon);
+        $("#screen").append('<img id="'+pokemon.name+'" src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
+        $(".modal-body2").empty();
+        $(".modal-body2").append('<img id="'+pokemon.name+'" src="'+pokepic+'" />');
+        // voiceData();
+        
 
-
-        });
+    });    
 };
 
 
@@ -329,6 +341,8 @@ $("#button-bottom").on("click", function (event) {
 
 $("#green-button-left").on("click", function (event) {
     console.log("#green-button-left pushed");
+    $("#modal2").modal("show");
+    
 });
 
 $("#orange-button-left").on("click", function (event) {
@@ -499,9 +513,11 @@ function previousMap() {
 function nextMap() {
     if (mapIn === 19) {
         mapIn = 0;
-    } else {
-        mapIn++;
-    }
-    clear();
-    $("#screen").append('<img id="map.location' + mapIn + '" src="' + maps[mapIn] + '" />');
+        } else {
+            mapIn++;
+        }
+        clear();
+    $("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
 };
+
+
