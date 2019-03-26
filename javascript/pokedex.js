@@ -18,8 +18,11 @@ function clear() {
     $("#info-screen").empty();
 }
 $(document).ready(function(){
+    $("modal2").hide();
+
     $("#top-button-yellow").on("click", function(event) {
         $("#myModal").modal("show");
+       
     });
 });
 
@@ -168,6 +171,8 @@ function pokeapi() {
             
         $("#info-screen").append(newPokemon);
         $("#screen").append('<img id="'+pokemon.name+'" src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
+        $(".modal-body2").empty();
+        $(".modal-body2").append('<img id="'+pokemon.name+'" src="'+pokepic+'" />');
         // voiceData();
         
 
@@ -278,6 +283,8 @@ $("#button-bottom").on("click", function(event) {
 
 $("#green-button-left").on("click", function(event) {
     console.log("#green-button-left pushed");
+    $("#pokemonPictureModal").modal("show");
+    
 });
 
 $("#orange-button-left").on("click", function(event) {
@@ -454,3 +461,5 @@ function nextMap(){
         clear();
     $("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
 };
+
+
