@@ -532,6 +532,7 @@ body {
 
 #info-screen p {
     font-family: 'Press Start 2P', cursive;
+    white-space: pre-line;
     font-size: 1em;
 }
 

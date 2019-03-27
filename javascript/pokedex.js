@@ -168,19 +168,35 @@ function pokeMoveList() {
     })
 
         .then(function (response) {
-            $("#info-screen").empty();
-            console.log(queryURL);
-            console.log(response);
-            let pokemoves = response.moves;
-
-            let moveList = $("<div>").append(
-                $("<p>").text("Moves" + pokemoves)
-            );
-            $("#info-screen").append(moveList);
-
-
-        })
-}
+        $("#info-screen").empty();
+        let pokepic = response.sprites.front_default;
+        var data = response;
+        var naturalMoves = [];
+        for (var i = 0; i < 10; i++) {
+          if (data.moves[i].version_group_details[0].level_learned_at === 0) {
+            naturalMoves.push({
+              name: data.moves[i].move.name,
+              lvl: data.moves[i].version_group_details[0].level_learned_at
+            })
+          } else {
+            console.log("Not level 0");
+          }
+        }
+        var moveName = [];
+        for (var i = 0; i < 4; i++) {
+            moveName.push(naturalMoves[i].name);
+        }
+        let moveInfo = $("<div>").append(
+            $("<p>").text("Moves:"),
+            $("<p>").text(moveName[0]),
+            $("<p>").text(moveName[1]),
+            $("<p>").text(moveName[2]),
+            $("<p>").text(moveName[3]),
+        );
+        $("#info-screen").append(moveInfo);
+        $("#screen").append('<img src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
+    });
+};
 
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
