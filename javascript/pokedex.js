@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 //Actual working code
 var pokemon;
-var idNum;
+var idNum = 0;
 let gifname = [];
 // Voice Api
 // function voiceData() {
@@ -70,10 +70,8 @@ function idDown10() {
 
 //  function to get evolution data
 function evolutions() {
-
     let userInput = $("#nb").val().trim();
     var queryURL = "https://pokeapi.co/api/v2/pokemon/" + userInput;
-
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -83,6 +81,7 @@ function evolutions() {
             console.log(response);
 
             var url = response.species.url;
+            let pokename = response.name;
 
             $.ajax({
                 url: url,
@@ -100,42 +99,75 @@ function evolutions() {
                             console.log(response);
                             var evoChain = [];
                             var evoData = response;
-                            var evoDetails = evoData.chain['evolves_to'][0];
-                            console.log(evoDetails);
+                            var evoDetails = evoData.chain['evolves_to'][0];                            
                             evoShort = evoDetails['evolution_details'][0];
-                            console.log(evoShort);
-                            console.log(evoDetails.species.name)
-                            console.log(evoShort.min_level)
-                            console.log(evoShort.trigger.name)
-                            console.log(evoShort.item)
 
-                            let name = evoDetails.species.name;
-                            let level = evoShort.min_level;
-                            let trigger = evoShort.trigger.name;
-                            let item = evoShort.item;
-                            console.log( name + level + trigger + item);
-                            do {    evoChain.push({
-                                species_name: name,
-                                min_level: !evoDetails ? 1 : level,
-                                trigger_name: !evoDetails ? null : trigger,
-                                item: !evoDetails ? null : item
-                                });
+                            if (pokename === evoDetails.evolves_to[0].species.name) {                                
+                                $("#info-screen").html("<p>Fully Evolved</p>");
+                            } else if (pokename != evoDetails.species.name) {
+                                let name = evoDetails.species.name;
+                                let level = evoShort.min_level;
+                                let trigger = evoShort.trigger.name;
+                                let item = evoShort.item.name;
 
-                            } while  (!!evoData && evoData.hasOwnProperty('evolves_to'));                           
-                            console.log(evoChain);
-                            if (item != null) {
-                                evoItem = "Yes";
-                            } else {
-                                evoItem = "No";
-                            }
+                                console.log(evoDetails);
+                                console.log(evoShort);
+                                console.log(evoDetails.species.name);
+                                console.log(evoShort.min_level);
+                                console.log(evoShort.trigger.name);
+                                console.log(evoShort.item);
+                                console.log(name + level + trigger + item);
 
-                            let evoInfo = $("<div>").append(
-                                $("<p>").attr('id', 'pokname').text("Evolves To:" + name.toUpperCase()),
-                                $("<p>").text("Evolves Via: " + trigger),
-                                $("<p>").text('Minimum Level: ' + level),
-                                $("<p>").text("Item Needed to Evolve?: " + evoItem),
-                            );
-                            $("#info-screen").append(evoInfo);
+                                do {
+                                    evoChain.push({
+                                        species_name: name,
+                                        min_level: !evoDetails ? 1 : level,
+                                        trigger_name: !evoDetails ? null : trigger,
+                                        item: !evoDetails ? null : item
+                                    });
+
+                                } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+                                console.log(evoChain);                                
+
+                                let evoInfo = $("<div>")
+                                evoInfo.append($("<p>").attr('id', 'pokname').text("Evolves To:" + name.toUpperCase()));
+                                if (item != null) {
+                                    evoItem = "Yes";
+                                    evoInfo.append($("<p>").text('Use ' + item + ' to evolve!'));
+                                } else {
+                                    evoItem = "No";
+                                    evoInfo.append($("<p>").text('at level ' + level));
+                                }
+                                $("#info-screen").append(evoInfo);
+
+                            }else if (pokename === evoDetails.species.name){
+                                let name = evoDetails.evolves_to[0].species.name;
+                                let level = evoDetails.evolves_to[0].evolution_details[0].min_level;
+                                let trigger = evoDetails.evolves_to[0].evolution_details[0].trigger.name;
+                                let item = evoDetails.evolves_to[0].evolution_details[0].item.name;
+                                
+                                do {
+                                    evoChain.push({
+                                        species_name: name,
+                                        min_level: !evoDetails ? 1 : level,
+                                        trigger_name: !evoDetails ? null : trigger,
+                                        item: !evoDetails ? null : item
+                                    });
+
+                                } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+                                console.log(evoChain);                     
+
+                                let evoInfo = $("<div>")
+                                evoInfo.append($("<p>").attr('id', 'pokname').text("Evolves To:" + name.toUpperCase()));
+                                if (item != null) {
+                                    evoItem = "Yes";
+                                    evoInfo.append($("<p>").text('Use ' + item + ' to evolve!'));
+                                } else {
+                                    evoItem = "No";
+                                    evoInfo.append($("<p>").text('at level ' + level));
+                                }
+                                $("#info-screen").append(evoInfo);
+                            }                            
                         })
                 })
         });
