@@ -532,6 +532,7 @@ body {
 
 #info-screen p {
     font-family: 'Press Start 2P', cursive;
+    white-space: pre-line;
     font-size: 1em;
 }
 
@@ -777,6 +778,11 @@ body {
     height: 50px;
     bottom: 1px;
     word-spacing: 35px;
+}
+
+#modalimg {
+    height: 100%;
+    width: 100%;
 }
 
 .key {

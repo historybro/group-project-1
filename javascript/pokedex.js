@@ -23,6 +23,14 @@ function clear() {
     $("#screen").empty();
     $("#info-screen").empty();
 }
+$(document).ready(function(){
+    $("#modal2").hide();
+
+    $("#top-button-yellow").on("click", function(event) {
+        $("#myModal").modal("show");
+       
+    });
+});
 
 
 function userInputInt() {
@@ -42,6 +50,7 @@ function idUp() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idDown() {
@@ -50,6 +59,7 @@ function idDown() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idUp10() {
@@ -58,6 +68,7 @@ function idUp10() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 function idDown10() {
@@ -66,6 +77,7 @@ function idDown10() {
     $("#nb").val(idNum);
     clear();
     pokeapi();
+    speakFlavor();
 }
 
 //  function to get evolution data
@@ -211,19 +223,35 @@ function pokeMoveList() {
     })
 
         .then(function (response) {
-            $("#info-screen").empty();
-            console.log(queryURL);
-            console.log(response);
-            let pokemoves = response.moves;
-
-            let moveList = $("<div>").append(
-                $("<p>").text("Moves" + pokemoves)
-            );
-            $("#info-screen").append(moveList);
-
-
-        })
-}
+        $("#info-screen").empty();
+        let pokepic = response.sprites.front_default;
+        var data = response;
+        var naturalMoves = [];
+        for (var i = 0; i < 10; i++) {
+          if (data.moves[i].version_group_details[0].level_learned_at === 0) {
+            naturalMoves.push({
+              name: data.moves[i].move.name,
+              lvl: data.moves[i].version_group_details[0].level_learned_at
+            })
+          } else {
+            console.log("Not level 0");
+          }
+        }
+        var moveName = [];
+        for (var i = 0; i < 4; i++) {
+            moveName.push(naturalMoves[i].name);
+        }
+        let moveInfo = $("<div>").append(
+            $("<p>").text("Moves:"),
+            $("<p>").text(moveName[0]),
+            $("<p>").text(moveName[1]),
+            $("<p>").text(moveName[2]),
+            $("<p>").text(moveName[3]),
+        );
+        $("#info-screen").append(moveInfo);
+        $("#screen").append('<img src="'+pokepic+'" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
+    });
+};
 
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
@@ -250,7 +278,6 @@ function pokeapi() {
         url: queryURL,
         method: "GET"
     })
-
         .then(function(response) {
             $("#info-screen").empty();
             console.log(queryURL);
@@ -396,6 +423,8 @@ $("#button-bottom").on("click", function (event) {
 
 $("#green-button-left").on("click", function (event) {
     console.log("#green-button-left pushed");
+    $("#modal2").modal("show");
+    
 });
 
 $("#orange-button-left").on("click", function (event) {
@@ -566,9 +595,11 @@ function previousMap() {
 function nextMap() {
     if (mapIn === 19) {
         mapIn = 0;
-    } else {
-        mapIn++;
-    }
-    clear();
-    $("#screen").append('<img id="map.location' + mapIn + '" src="' + maps[mapIn] + '" />');
+        } else {
+            mapIn++;
+        }
+        clear();
+    $("#screen").append('<img id="map.location'+ mapIn + '" src="' + maps[mapIn] + '" />');
 };
+
+
