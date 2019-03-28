@@ -238,7 +238,7 @@ function pokeapi() {
             $("<p>").text("T͔̬̮͍̜͓ͅT͖͓y̮̤͘p̬͇̜͍͚̝̕e̛͚̩̮̝͓̺̻:̟̥̗̹̙ ͈̺̹̯̠̺E̝̝̰̲̥͠R̪̼̞̙͖̖͙͜R͎or̴͈̗̘͔r͙̝̤͖͙ͅr̭ ̙U͔k͘n̳̜ó̳w̰͔̖̻̹n͖̜̼̯͈͠")
         );
         $("#info-screen").append(newPokemon);
-        $("#screen").append('<img id="' + pokemon.name + '" src="images\missigno.png" />');
+        $("#screen").append('<img id="missigno" src="./images/missigno.png" />');
         idNum = 0;
         userInput = 0;
 
