@@ -99,80 +99,98 @@ function evolutions() {
                             console.log("evo response: " , response);
                             var evoChain = [];
                             var evoData = response;
-                            var evoDetails = evoData.chain['evolves_to'][0];                            
-                            evoShort = evoDetails['evolution_details'][0];
+                            var evoDetails = evoData.chain['evolves_to'][0];
 
-                            if (pokename === evoDetails.evolves_to[0].species.name) {                                
+                            if (evoDetails === undefined || evoDetails.evolves_to[0] === undefined || pokename === evoDetails.evolves_to[0].species.name) {                                
                                 $("#info-screen").html("<p>Fully Evolved</p>");
                                 console.log("final evo");
-                            } else if (pokename != evoDetails.species.name) {
-                                console.log("evo");
-                                let name = evoDetails.species.name;
-                                let level = evoShort.min_level;
-                                let trigger = evoShort.trigger.name;
-                                let item = evoShort.item;
+                            } else if (evoData.chain.evolves_to.length !== 0) {
+                                evoChain.push(evoData.chain.evolves_to[0].species.name);
+                                console.log("if1");
+                                console.log("if1: " + evoChain);
+                            } else {
+                                console.log("else1");
+                                console.log("else1: " + evoChain);                                                                
+                            }
+                            if (evoData.chain.evolves_to[0].evolves_to.length !== 0) {
+                                evoChain.push(evoData.chain.evolves_to[0].evolves_to[0].species.name);
+                                console.log("if2");
+                                console.log("if2: " + evoChain);
+                            } else {
+                                console.log("else2");
+                                console.log("else2: " + evoChain);
+                            }
+                            console.log("outside");
+                            console.log("outside: " + evoChain);
+                            //if (pokename != evoDetails.species.name) {
+                            //     console.log("evo");
+                            //     let name = evoDetails.species.name;
+                            //     let level = evoShort.min_level;
+                            //     let trigger = evoShort.trigger.name;
+                            //     let item = evoShort.item;
 
-                                console.log(evoDetails);
-                                console.log(evoShort);
-                                console.log(evoDetails.species.name);
-                                console.log(evoShort.min_level);
-                                console.log(evoShort.trigger.name);
-                                console.log(evoShort.item);
-                                console.log(name + level + trigger + item);
+                            //     console.log(evoDetails);
+                            //     console.log(evoShort);
+                            //     console.log(evoDetails.species.name);
+                            //     console.log(evoShort.min_level);
+                            //     console.log(evoShort.trigger.name);
+                            //     console.log(evoShort.item);
+                            //     console.log(name + level + trigger + item);
 
-                                do {
-                                    evoChain.push({
-                                        species_name: name,
-                                        min_level: !evoDetails ? 1 : level,
-                                        trigger_name: !evoDetails ? null : trigger,
-                                        item: !evoDetails ? null : item
-                                    });
+                            //     do {
+                            //         evoChain.push({
+                            //             species_name: name,
+                            //             min_level: !evoDetails ? 1 : level,
+                            //             trigger_name: !evoDetails ? null : trigger,
+                            //             item: !evoDetails ? null : item
+                            //         });
 
-                                } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
-                                console.log(evoChain);                                
+                            //     } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+                            //     console.log(evoChain);                                
 
-                                let evoInfo = $("<div>")
-                                evoInfo.append($("<p>").attr('id', 'pokename').text("Evolves To:" + name.toUpperCase()));
-                                if (item != null) {
-                                    evoItem = "Yes";
-                                    let item = evoShort.item.name;
-                                    evoInfo.append($("<p>").text('Use ' + item + ' to evolve!'));
-                                } else {
-                                    evoItem = "No";
-                                    evoInfo.append($("<p>").text('at level ' + level));
-                                }
-                                $("#info-screen").append(evoInfo);
+                            //     let evoInfo = $("<div>")
+                            //     evoInfo.append($("<p>").attr('id', 'pokename').text("Evolves To:" + name.toUpperCase()));
+                            //     if (item != null) {
+                            //         evoItem = "Yes";
+                            //         let item = evoShort.item.name;
+                            //         evoInfo.append($("<p>").text('Use ' + item + ' to evolve!'));
+                            //     } else {
+                            //         evoItem = "No";
+                            //         evoInfo.append($("<p>").text('at level ' + level));
+                            //     }
+                            //     $("#info-screen").append(evoInfo);
 
-                            } else if (pokename === evoDetails.species.name){
-                                console.log("evo2");
-                                let name = evoDetails.evolves_to[0].species.name;
-                                let level = evoDetails.evolves_to[0].evolution_details[0].min_level;
-                                let trigger = evoDetails.evolves_to[0].evolution_details[0].trigger.name;
-                                let item = evoDetails.evolves_to[0].evolution_details[0].item;
+                            // } else if (pokename === evoDetails.species.name){
+                            //     console.log("evo2");
+                            //     let name = evoDetails.evolves_to[0].species.name;
+                            //     let level = evoDetails.evolves_to[0].evolution_details[0].min_level;
+                            //     let trigger = evoDetails.evolves_to[0].evolution_details[0].trigger.name;
+                            //     let item = evoDetails.evolves_to[0].evolution_details[0].item;
                                 
-                                do {
-                                    evoChain.push({
-                                        species_name: name,
-                                        min_level: !evoDetails ? 1 : level,
-                                        trigger_name: !evoDetails ? null : trigger,
-                                        item: !evoDetails ? null : item
-                                    });
+                            //     do {
+                            //         evoChain.push({
+                            //             species_name: name,
+                            //             min_level: !evoDetails ? 1 : level,
+                            //             trigger_name: !evoDetails ? null : trigger,
+                            //             item: !evoDetails ? null : item
+                            //         });
 
-                                } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
-                                console.log(evoChain);                     
+                            //     } while (!!evoData && evoData.hasOwnProperty('evolves_to'));
+                            //     console.log(evoChain);                     
 
-                                let evoInfo = $("<div>")
-                                evoInfo.append($("<p>").attr('id', 'pokename').text("Evolves To:" + name.toUpperCase()));
-                                if (item != null) {
-                                    evoItem = "Yes";
-                                    let item = evoDetails.evolves_to[0].evolution_details[0].item.name;
-                                    evoInfo.append($("<p>").text('Use ' + item + ' to evolve!'));
-                                } else {
-                                    evoItem = "No";
-                                    evoInfo.append($("<p>").text('at level ' + level));
-                                }
-                                $("#info-screen").append(evoInfo);
-                            }                            
+                            //     let evoInfo = $("<div>")
+                            //     evoInfo.append($("<p>").attr('id', 'pokename').text("Evolves To:" + name.toUpperCase()));
+                            //     if (item != null) {
+                            //         evoItem = "Yes";
+                            //         let item = evoDetails.evolves_to[0].evolution_details[0].item.name;
+                            //         evoInfo.append($("<p>").text('Use ' + item + ' to evolve!'));
+                            //     } else {
+                            //         evoItem = "No";
+                            //         evoInfo.append($("<p>").text('at level ' + level));
+                            //     }
+                            //     $("#info-screen").append(evoInfo);
+                            // }                            
+
                         })
                 })
         });
@@ -210,6 +228,22 @@ function pokeMoveList() {
 //function that runs the complete pokeAPI call and data storage
 function pokeapi() {
     let userInput = $("#nb").val().trim();
+
+    if ( userInput < 1 || userInput > 802) {
+        let newPokemon = $("<div>").append(
+            $("<p>").attr('id', 'pokname').text("N̩̤̖͢a͙͔̥m̧̦̤̞ȩ͔̬̻͓͈:͍͔͝ ͈̟̻U̱̪̙͈n̜̹k͍̙̯͠ow̯͔̪̗̠͈͙n̛͇̱͔͔"),
+            $("<p>").text("̦̬̱̭N̷u̟̩m̰̭̞b̳̣̯͖͙̮e̞̯̰͇͍̤̠r̟̹͜:̗͎̙͕̘ ̸͍Ḛ̶̫̣̳r҉͚͇r̷o̟̟͎͉̬̥͚r"),
+            $("<p>").text("H̙͚͕̞̜̪e͢i̵̲̺̹̪̹g̬̬̤͖͉̩̻͝h̲̘t̠̙̗̦̱̤:͓̱͓͖͝ ̨̲̻e̛̠̘͚R͖̼̣o̯͈͍̼͚͟ͅr̛̜̻͍͎ ̝̱͚̖͈u͓̺̘͕͖͇̭N̠̝̬̮͖̦k̘͈̩͕͚̗o̺̮͓̘͙͓͍w̘̱̮̦̬͠n̘̱̭̥"),
+            $("<p>").text("̢͈̗̼̹W̯ͅe̱̙͇̹ͅḭ̜̼͈̝͎g͉͉̮̟͔h͔̞̱͍t͍̥̜̤͔̺:̬̺̘ ̀ ̧̲̤̳̙̥̗͎12͚̺͙̤3͕e͓̜͞r̷͇̺̟r̗͉̪͔̗̪̕o͉͇͎̺r1̷̬̝͈͖̩̬ͅ2͇̝̹̦̥3͜u͇͎̞k̶͓̥͈̼͉̯̲n̨̥̥ow̷̪̯̖͉̹̩͍n̗̬"),
+            $("<p>").text("T͔̬̮͍̜͓ͅT͖͓y̮̤͘p̬͇̜͍͚̝̕e̛͚̩̮̝͓̺̻:̟̥̗̹̙ ͈̺̹̯̠̺E̝̝̰̲̥͠R̪̼̞̙͖̖͙͜R͎or̴͈̗̘͔r͙̝̤͖͙ͅr̭ ̙U͔k͘n̳̜ó̳w̰͔̖̻̹n͖̜̼̯͈͠")
+        );
+        $("#info-screen").append(newPokemon);
+        $("#screen").append('<img id="' + pokemon.name + '" src="images\missigno.png" />');
+        idNum = 0;
+        userInput = 0;
+
+
+    } else {
     var queryURL = "https://pokeapi.co/api/v2/pokemon/" + userInput;
 
     $.ajax({
@@ -252,9 +286,9 @@ function pokeapi() {
             $("#info-screen").append(newPokemon);
             $("#screen").append('<img id="' + pokemon.name + '" src="' + pokepic + '" /> <video controls autoplay loop muted id="myVideo" class="seeVideo"><source src="images/intro.mp4" type="video/mp4"> Your browser does not support the video tag.</video>');
             voiceData();
-
-
+        
         });
+    }
 };
 
 
@@ -276,6 +310,7 @@ $(document).on('keypress', function (e) {
         empty();
         clear();
         pokeapi();
+        speakFlavor();
     }
 });
 
