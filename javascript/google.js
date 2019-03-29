@@ -1,12 +1,12 @@
 //google authentication
 
 var config = {
-    apiKey: "AIzaSyCaDb4CUy9YF5R-ZmLiyfNHuWvMsgyk_KA",
-    authDomain: "train-homework-31db7.firebaseapp.com",
-    databaseURL: "https://train-homework-31db7.firebaseio.com",
-    projectId: "train-homework-31db7",
-    storageBucket: "train-homework-31db7.appspot.com",
-    messagingSenderId: "387430691482"
+    apiKey: "AIzaSyBtMir1bHuJy7DzhkwvdJJqg7SBr8LSdlE",
+    authDomain: "betterpokedex.firebaseapp.com",
+    databaseURL: "https://betterpokedex.firebaseio.com",
+    projectId: "betterpokedex",
+    storageBucket: "betterpokedex.appspot.com",
+    messagingSenderId: "709012866843"
 };
 
 firebase.initializeApp(config);

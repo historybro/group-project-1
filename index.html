@@ -96,16 +96,15 @@
           </div>
           <div id="keyboard">
             <div class="key" id="key1">TCG</div>
-            <div class="key" id="key2">Poke-Data</div>
+            <div class="key" id="key2">Data</div>
             <div class="key" id="key3">Moves</div>
             <div class="key" id="key4">Evo.</div>
-            <a href="https://j91branson.github.io/PokemonQuiz/" target="_blank"><div class="key" id="key5">Quiz-Easy</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizMedium/" target="_blank"><div class="key" id="key6">Quiz-Medium</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard1/" target="_blank"><div class="key" id="key7">Quiz-Hard1</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard2/" target="_blank"><div class="key" id="key8">Quiz-Hard2</div></a>
-            <a href="https://j91branson.github.io/PokemonQuizHard3/" target="_blank"><div class="key" id="key9">Quiz-Hard3</div></a>
-
-            <div class="key" id="key10">Maps</div>
+            <div class="key" id="key5">Maps</div>
+            <a href="https://j91branson.github.io/PokemonQuiz/" target="_blank"><div class="key" id="key6">Quiz-Easy</div></a>
+            <a href="https://j91branson.github.io/PokemonQuizMedium/" target="_blank"><div class="key" id="key7">Quiz-Medium</div></a>
+            <a href="https://j91branson.github.io/PokemonQuizHard1/" target="_blank"><div class="key" id="key8">Quiz-Hard1</div></a>
+            <a href="https://j91branson.github.io/PokemonQuizHard2/" target="_blank"><div class="key" id="key9">Quiz-Hard2</div></a>
+            <a href="https://j91branson.github.io/PokemonQuizHard3/" target="_blank"><div class="key" id="key10">Quiz-Hard3</div></a>            
           </div>
           <div id="leaf-button-right"></div>
           <div id="yellow-button-right"></div>
@@ -121,11 +120,13 @@
           <div id="cross-button">
             <div id="left-red-cross"></div>
           </div>
-          <div class="key3" id="square-button-right1" input onclick='responsiveVoice.cancel();'>
+          <div class="key3" id="square-button-right1">
             <i class="fas fa-volume-mute"></i>
           </div>
-          <div class="key3" id="square-button-right2"
-          input onclick='responsiveVoice.speak("     Search Button,This will search for the pokemon data after you put a name, or number that is a Pokemon. D-Pad, You can toggle through the next or previous Pokemon in the following way. Up, next pokemon.  Down, previous pokemon. Left, back by 10. Right, forward by 10. TCG Button. This button will display card data for the current pokemon. Search Field. You enter a valid number, or name to search for pokemon here. Red Power Button (top left) . Will power the BetterDex and open it, or power it off and close the BetterDex. Yellow Instructions Button (top left). This will allow you to see the text instructions again. Poke-Data Button. This will display the pokemon data for the current pokemon. Evo. Button. This will display the evolution forms of current pokemon. Start Audio Button. This will play the instructions verbally while allowing the BetterDex to still be utilized. Stop Audio Button. This will stop the audio instructions. Quiz Buttons. This will open a quiz with varied difficulty, in a new window. Map Button. This will pull up the maps of the different regions. Left Arrow Button. This will go to the previous region map. Right Arrow Button. This will go to the next region map. Moves Button. This will display the moves of the current pokemon.  ");' type='button' value='🔊 Play'><p><i class="fas fa-volume-up"></i></p></div>
+          <div class="key3" id="square-button-right2">
+            <i class="fas fa-volume-up"></i>
+          </div>
+          
         </div>
         <div id="top-right1" class="closed"></div>
         <div id="top-right2" class="closed"></div>
@@ -221,8 +222,8 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td class="instructionTxt">This will play the instructions verbally while allowing the BetterDex to still be utilized.</td>
-                        <td class="instructionTxt">This will stop the audio instructions.
+                        <td class="instructionTxt">This will turn the volume on.</td>
+                        <td class="instructionTxt">This will turn the volume off and stop all audio.
                         </td>
                       </tr>
                     </tbody>
@@ -277,18 +278,14 @@
                   </div>
                 </div>
                 <div class="modal-footer">
+                  <button type="button" class="nes-btn is-primary" id="voiceinstructions">Voice Instructions</button>
                   <button type="button" class="nes-btn is-primary" data-dismiss="modal">Close</button>
                 </div>
           </div>
         </div>
-      </div>
+    </div>      
 
-
-
-
-      
-
-      <div id="modal2" class="modal" tabindex="-1" role="dialog">
+    <div id="modal2" class="modal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -316,22 +313,14 @@
     crossorigin="anonymous"></script>
   <!--Google Auth-->
   <script src="javascript/google.js"></script>
-  <!--Animation-->
-  <script src="javascript/animation.js"></script>
-  <!--Card-->
-  <script src="javascript/card.js"></script>
-  <!--Day/Night-->
-  <script src="javascript/day-night.js"></script>
-  <!--Everything else-->
-  <script src="javascript/pokedex.js"></script>
   <!-- Voice API -->
   <script src=https://code.responsivevoice.org/responsivevoice.js> </script>
-  <!-- BetterTime -->
-  <script src="javascript/BetterTime.js"></script>
-  <!-- Gipy -->
-  <script src="javascript/gifs.js"></script>
-  <!-- Voice -->
-  <script src="javascript/voice.js"></script>
+  <!--Functions-->
+  <script src="javascript/function.js"></script>
+  <script src="javascript/evolution.js"></script>
+  <!--Buttons-->
+  <script src="javascript/button.js"></script>
+  
 </body>
 
 </html>
