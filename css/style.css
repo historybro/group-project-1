@@ -865,3 +865,18 @@ body {
     font-family: 'Press Start 2P', cursive;
     border-radius: 4px;
 }
+
+@media only screen and (max-width: 800px) {
+    .character {
+        right: 15%;
+    }
+    
+}
+
+@media only screen and (max-width: 420px) {
+    .character {
+        right: auto;
+        bottom: -100px;
+    }
+    
+}
