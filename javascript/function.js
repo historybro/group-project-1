@@ -49,7 +49,9 @@ function clock() {
     } else {
         document.getElementById('second').innerHTML= ":" + secs;
     };
-    
+
+    setTimeout(function(){ $('#myModal').modal('show');}, 1000);
+
 }    
     
 setInterval(clock, 100);
