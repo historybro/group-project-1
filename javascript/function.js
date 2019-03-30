@@ -19,6 +19,9 @@ $(document).ready(function(){
 	  // Else use ‘day’ theme
       document.body.className = "day";
     }
+    setTimeout(function(){ $('#myModal').modal('show');}, 1000);
+    clearTimeout();
+    
 });
 
 //initial variables
