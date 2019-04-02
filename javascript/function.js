@@ -19,6 +19,7 @@ $(document).ready(function(){
 	  // Else use ‘day’ theme
       document.body.className = "day";
     }
+    $('#myModal').modal('show');
 });
 
 //initial variables
@@ -26,6 +27,7 @@ var pokemon;
 var idNum = 0;
 let gifname = [];
 var volumeon;
+
 
 //Better Time
 //clock function

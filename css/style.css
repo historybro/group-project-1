@@ -11,26 +11,29 @@ body {
 }
 
 .day {
-    background: url('../images/grassy-background.jpg');
+    background: url('../images/grassy-background.jpg') no-repeat center center fixed;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    
 }
 
 .sunset {
-    background: url('../images/sunsetBG.jpg');
+    background: url('../images/sunsetBG.jpg') no-repeat center center fixed;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .night {
-    background: url('../images/NightBG.jpg');
+    background: url('../images/NightBG.jpg') no-repeat center center fixed;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
 }
 
@@ -778,11 +781,12 @@ body {
 
 .character {
     position: absolute;
-    right: 35%;
+    margin-top: 3%;
+    right: 28%;
     width: 500px;
     height: 50px;
-    bottom: 100px;
     word-spacing: 35px;
+    z-index: -1;
 }
 
 #modalimg {
@@ -811,8 +815,8 @@ body {
     font-size: 100%;
     line-height: 2;
     text-align: center;
-    
 }
+
 #button-bottom {
     font-family: 'Press Start 2P', cursive;
     font-size: 50%;
@@ -844,8 +848,7 @@ body {
     left: 35%;
 }
 
-
-.logo{
+.logo {
     background: #c00d0d;
     color: white;
     padding: 5px 10px;
@@ -853,9 +856,9 @@ body {
     font-weight: bold;
     width: 140px;
     position: absolute;
-    top:150px;
+    top: 150px;
 }
-       
+
 .clock {
     background: #30da0c;
     text-align: center;
@@ -870,7 +873,6 @@ body {
     .character {
         right: 15%;
     }
-    
 }
 
 @media only screen and (max-width: 420px) {
@@ -878,5 +880,4 @@ body {
         right: auto;
         bottom: -100px;
     }
-    
 }
